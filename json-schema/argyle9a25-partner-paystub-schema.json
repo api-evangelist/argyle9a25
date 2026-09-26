@@ -1,0 +1,484 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argyle9a25/main/json-schema/argyle9a25-partner-paystub-schema.json",
+  "title": "PartnerPaystub",
+  "x-generated": "2026-09-26",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerPaystub",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique ID of the paystub object."
+    },
+    "account": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID of the account associated with the paystub."
+    },
+    "payroll_document": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID of the [payroll document object](/api-reference/payroll-documents#object) associated with this paystub.\n"
+    },
+    "deduction_list": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Deduction"
+      },
+      "description": "An itemized list of deductions listed on the paystub. Each object corresponds to one line item."
+    },
+    "filing_status": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/FilingStatus"
+      },
+      "description": "Information on the user's filing status."
+    },
+    "tax_list": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Tax"
+      },
+      "description": "An itemized list of tax withholdings listed on the paystub. Each object corresponds to one line item."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "scheduled",
+        "cancelled",
+        "excluded"
+      ],
+      "description": "Payment status of the paystub.\n- `completed` - Payment has been made to the user.\n- `scheduled` - Payment is scheduled to be made to the user.\n- `cancelled` - Payment was cancelled, and was not nor will be paid to the user.\n- `excluded` - Tag used for dummy/sample/watermarked/test paystubs present in the account. May also include non-employee payment records. These paystubs are excluded when generating reports and other calculations.\n"
+    },
+    "paystub_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) of the payment date, sourced from the paystub.\n"
+    },
+    "paystub_period": {
+      "type": "object",
+      "properties": {
+        "start_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) of the start of the work period."
+        },
+        "end_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) of the end of the work period."
+        }
+      },
+      "description": "Start date and end date of the work period."
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency code ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217))."
+    },
+    "gross_pay": {
+      "type": "string",
+      "description": "Total gross pay from the paystub period before taxes or deductions. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "deductions": {
+      "type": "string",
+      "description": "Total amount of deductions from the paystub period. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "taxes": {
+      "type": "string",
+      "description": "Total tax amount from the paystub period. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "net_pay": {
+      "type": "string",
+      "description": "Net pay (gross pay minus taxes and deductions) from the paystub period. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "reimbursements": {
+      "type": "string",
+      "description": "Total reimbursement amount from the paystub period. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "hours": {
+      "type": "string",
+      "description": "Total hours worked during the paystub period. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "fees": {
+      "type": "string",
+      "description": "Total fees incurred during the paystub period. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "net_pay_ytd": {
+      "type": "string",
+      "description": "Net pay year-to-date, including this paystub. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "gross_pay_ytd": {
+      "type": "string",
+      "description": "Gross pay year-to-date, including this paystub. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "employer": {
+      "type": "string",
+      "description": "Employer name."
+    },
+    "employment": {
+      "type": "string",
+      "description": "[Employment](/api-reference/employments) ID. Can be used as a filter when [listing paystubs](/api-reference/paystubs/list-all-paystubs).\n"
+    },
+    "employer_address": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "Name of the city, town, district, or similar regional entity."
+        },
+        "line1": {
+          "type": "string",
+          "description": "Address-Line 1, usually street address or P.O. Box information."
+        },
+        "line2": {
+          "type": "string",
+          "description": "Address-Line 2, usually the apartment or unit number."
+        },
+        "state": {
+          "type": "string",
+          "description": "State, county, province, region, or equivalent."
+        },
+        "country": {
+          "type": "string",
+          "description": "Two-letter country code ([ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format)."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "Zip code, or equivalent."
+        }
+      },
+      "description": "Object containing employer address information, sourced from the paystub."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the paystub object was created."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when a property value of the paystub object most recently changed."
+    },
+    "destinations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Destination"
+      },
+      "description": "Contains information on where and how pay was delivered to the user."
+    },
+    "hours_ytd": {
+      "type": "string",
+      "description": "Total hours worked year-to-date, including this paystub's work period. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "deductions_ytd": {
+      "type": "string",
+      "description": "Total deductions year-to-date, including amounts from this paystub. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "taxes_ytd": {
+      "type": "string",
+      "description": "Total taxes year-to-date, including amounts from this paystub. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "gross_pay_list": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/GrossPay"
+      },
+      "description": "An itemized list of gross pay listed on the paystub. Each object corresponds to one line item."
+    },
+    "gross_pay_list_totals": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "$ref": "#/$defs/GrossPayTotal"
+        },
+        "overtime": {
+          "$ref": "#/$defs/GrossPayTotal"
+        },
+        "commission": {
+          "$ref": "#/$defs/GrossPayTotal"
+        },
+        "bonus": {
+          "$ref": "#/$defs/GrossPayTotal"
+        },
+        "other": {
+          "$ref": "#/$defs/GrossPayTotal"
+        }
+      },
+      "description": "Sums the values of `gross_pay_list` objects based on their `type`:\n* **base** = base + pto\n* **overtime** = overtime\n* **commission** = commission\n* **bonus** = bonus\n* **other** = disability + benefits + tips + stock + other\n"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional, non-categorized information."
+    }
+  },
+  "$defs": {
+    "Deduction": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "description": "Amount of the deduction. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name or description of the deduction."
+        },
+        "tax_classification": {
+          "type": "string",
+          "enum": [
+            "pre_tax",
+            "post_tax"
+          ],
+          "description": "Tax classification.\n- `pre_tax`\n- `post_tax`\n"
+        },
+        "amount_ytd": {
+          "type": "string",
+          "description": "Total amount deducted year-to-date, including the amounts from this paystub. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        }
+      }
+    },
+    "Destination": {
+      "type": "object",
+      "properties": {
+        "reference": {
+          "type": "string",
+          "description": "Describes where the payment was sent, such as a checking account or bank name."
+        },
+        "amount": {
+          "type": "string",
+          "description": "Pay amount sent to the destination. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "method": {
+          "type": "string",
+          "description": "Payment method, such as direct deposit."
+        },
+        "ach_deposit_account": {
+          "type": "object",
+          "properties": {
+            "bank_name": {
+              "type": "string",
+              "description": "Name of the bank account."
+            },
+            "routing_number": {
+              "type": "string",
+              "description": "Routing number of the bank account."
+            },
+            "account_number": {
+              "type": "string",
+              "description": "Account number of the bank account."
+            }
+          },
+          "description": "Details for bank account destinations."
+        },
+        "card": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the card where the payout was sent."
+            },
+            "number": {
+              "type": "string",
+              "description": "Card number."
+            }
+          },
+          "description": "Details for payout card destinations."
+        }
+      }
+    },
+    "FilingStatus": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "federal",
+            "state",
+            "local"
+          ],
+          "description": "Tax authority.\n- `federal`\n- `state`\n- `local`\n"
+        },
+        "location": {
+          "type": "string",
+          "description": "Local jurisdiction. Values depend on `type`.\n- if type is `federal` - `null`\n- if type is `state` - state abbreviation code\n- if type is `local` - city name or area code\n"
+        },
+        "status": {
+          "type": "string",
+          "description": "Marital status."
+        }
+      }
+    },
+    "GrossPay": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name or description of the gross pay line item."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "base",
+            "pto",
+            "overtime",
+            "commission",
+            "bonus",
+            "disability",
+            "benefits",
+            "tips",
+            "stock",
+            "other"
+          ],
+          "description": "Categorized type of gross pay, based on `name`. Used in `gross_pay_list_totals`.\n- `base`\n- `pto`\n- `overtime`\n- `commission`\n- `bonus`\n- `disability`\n- `benefits`\n- `tips`\n- `stock`\n- `other`\n"
+        },
+        "start_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) of the start of the work period."
+        },
+        "end_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) of the end of the work period."
+        },
+        "rate": {
+          "type": "string",
+          "description": "Hourly rate of gross pay earnings for this line item. Returned as a decimal string with exactly four decimal places.",
+          "x-argyle-decimal-places": 4,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "hours": {
+          "type": "string",
+          "description": "Hours worked for this line item. Returned as a decimal string with exactly four decimal places.",
+          "x-argyle-decimal-places": 4,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "amount": {
+          "type": "string",
+          "description": "Gross pay earned from this line item. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "hours_ytd": {
+          "type": "string",
+          "description": "Total hours worked year-to-date related to this gross pay line item, including this paystub's work period. Returned as a decimal string with exactly four decimal places.",
+          "x-argyle-decimal-places": 4,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "amount_ytd": {
+          "type": "string",
+          "description": "Total gross pay earned year-to-date related to this gross pay line item, including this paystub. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        }
+      }
+    },
+    "GrossPayTotal": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "description": "Gross pay earned from line items of this type. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "amount_ytd": {
+          "type": "string",
+          "description": "Total gross pay earned year-to-date from line items of this type, including this paystub. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "hours": {
+          "type": "string",
+          "description": "Hours worked from line items of this type. Returned as a decimal string with exactly four decimal places.",
+          "x-argyle-decimal-places": 4,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "hours_ytd": {
+          "type": "string",
+          "description": "Hours worked year-to-date from line items of this type, including this paystub. Returned as a decimal string with exactly four decimal places.",
+          "x-argyle-decimal-places": 4,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "rate_implied": {
+          "type": "string",
+          "description": "Calculated ratio of `amount` to `hours` of gross pay list totals. Returned as a decimal string with exactly four decimal places.",
+          "x-argyle-decimal-places": 4,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "rate_implied_ytd": {
+          "type": "string",
+          "description": "Calculated ratio of `amount_ytd` to `hours_ytd` of gross pay list totals. Returned as a decimal string with exactly four decimal places.",
+          "x-argyle-decimal-places": 4,
+          "x-argyle-decimal-mode": "fixed"
+        }
+      }
+    },
+    "Tax": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "description": "Amount of the tax withholding. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name or description of the tax withholding."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "federal",
+            "state",
+            "local",
+            "fica",
+            "other"
+          ],
+          "description": "Payroll tax type.\n- `federal`\n- `state`\n- `local`\n- `fica`\n- `other`\n"
+        },
+        "amount_ytd": {
+          "type": "string",
+          "description": "Total tax withholdings year-to-date (specific to the tax `type`), including the amounts from this paystub. Returned as a decimal string with exactly two decimal places.\n",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        }
+      }
+    }
+  }
+}

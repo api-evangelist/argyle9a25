@@ -1,0 +1,431 @@
+generated: '2026-09-26'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_original/argyle9a25-openapi-openapi.yml
+vocabulary:
+  name: Argyle9a25 Domain Vocabulary
+  description: 'Terms declared by Argyle9a25''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-09-26'
+  terms:
+  - term: ConsolidatedWebhookSubscriptionRequest
+    definition: 'Object declared by the contract with fields: events, name, url, secret, config.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ConsolidatedWebhookSubscriptionRequest
+  - term: ConsolidatedWebhookSubscriptionResponse
+    definition: 'Object declared by the contract with fields: id, name, events, config, secret, url, created_at, updated_at, last_sent_at.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ConsolidatedWebhookSubscriptionResponse
+  - term: ConsolidatedWebhookEventPayload
+    definition: Webhook event payload. Use `event` to determine the event-specific shape of `data`.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ConsolidatedWebhookEventPayload
+  - term: Account
+    definition: 'Object declared by the contract with fields: id, user, employers, item, source, created_at, updated_at, scanned_at, connection,
+      direct_deposit_switch, availability, ongoing_refresh.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/Account
+  - term: Address
+    definition: 'Object declared by the contract with fields: city, line1, line2, state, country, postal_code.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/Address
+  - term: AvailabilityItem
+    definition: Status of the account's most recent data scan (initial data retrieval included) or [document upload](/api-reference/user-uploads)
+      submission. - `in_progress` - A data scan is in progress, or a document was uploaded but not submitted. - `synced` - The most recent data
+      scan of the account was successful, or an uploaded document was submitted. - `sync_failed` - Data retrieval during the most recent d
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/AvailabilityItem
+  - term: BankingReport
+    definition: Report object.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/BankingReport
+  - term: BankingReportCustomField
+    definition: 'Object declared by the contract with fields: label, value, shown.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/BankingReportCustomField
+  - term: BankingReportRequest
+    definition: 'Object declared by the contract with fields: user, webhook, bank_accounts, from_date, income_from_date, report_custom_fields,
+      income_stream_confidence_minimum.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/BankingReportRequest
+  - term: BasePay
+    definition: 'Object declared by the contract with fields: amount, period, currency.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/BasePay
+  - term: Broker
+    definition: '**Note:** Only for wholesale mortgage integrations. Contains information about the user''s mortgage broker for [broker-branded
+      invites](/verifications/wholesale-mortgage).'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/Broker
+  - term: Embedded
+    definition: 'Object declared by the contract with fields: verification, type, configuration.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientEmbeddedSessionCreateRequest
+  - term: Invites
+    definition: 'Object declared by the contract with fields: id, user, type, configuration, link, invite.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientInviteSession
+  - term: ClientInviteSessionConfiguration
+    definition: 'Object declared by the contract with fields: flow_id, items, reply_to, email, phone_number.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientInviteSessionConfiguration
+  - term: ClientInviteSessionCreateConfiguration
+    definition: 'Object declared by the contract with fields: flow_id, items, reply_to, email, phone_number.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientInviteSessionCreateConfiguration
+  - term: Invites
+    definition: 'Object declared by the contract with fields: user, type, configuration.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientInviteSessionCreateRequest
+  - term: ClientInviteSessionDelivery
+    definition: 'Object declared by the contract with fields: id, method, status, sent_at, updated_at.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientInviteSessionDelivery
+  - term: ClientInviteSessionInvite
+    definition: 'Object declared by the contract with fields: status, deliveries, invited_at, created_at, updated_at.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientInviteSessionInvite
+  - term: ClientReportCustomField
+    definition: Custom field returned in report JSON as a pass-through value.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientReportCustomField
+  - term: Embedded
+    definition: 'Object declared by the contract with fields: verification, configuration, link, data_source.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientSession
+  - term: ClientSessionCreateConfiguration
+    definition: Connection session configuration for payroll and banking verifications.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientSessionCreateConfiguration
+  - term: ClientVerification
+    definition: 'Object declared by the contract with fields: id, user, created_at, updated_at, channel, status, report, employments, loan, billing,
+      configuration, data_source.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerification
+  - term: ClientVerificationBilling
+    definition: Optional billing details for regular payroll and mortgage verification workflows.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationBilling
+  - term: ClientVerificationConfiguration
+    definition: 'Object declared by the contract with fields: notified_recipients.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationConfiguration
+  - term: ClientVerificationCreateConfiguration
+    definition: 'Object declared by the contract with fields: notified_recipients.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationCreateConfiguration
+  - term: ClientVerificationCreateReportRequest
+    definition: Report request configuration.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationCreateReportRequest
+  - term: ClientVerificationCreateRequest
+    definition: Request body for ordering a verification. - `user` and `report` are required for all requests. - `employments` is required for
+      document verifications only. - `report.configuration` is used for banking verifications only. - `loan` and `billing` apply to regular payroll
+      and mortgage verification workflows.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationCreateRequest
+  - term: ClientVerificationEmployment
+    definition: Employment details for the user.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationEmployment
+  - term: ClientVerificationError
+    definition: Verification error details.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationError
+  - term: ClientVerificationErrorResource
+    definition: Verification error resource details.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationErrorResource
+  - term: ClientVerificationLoan
+    definition: Optional loan details for regular payroll and mortgage verification workflows.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationLoan
+  - term: ClientVerificationLoanMetadata
+    definition: Optional loan details for regular payroll and mortgage verification workflows.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationLoanMetadata
+  - term: ClientVerificationRefreshReportRequest
+    definition: Report request configuration for refresh requests.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationRefreshReportRequest
+  - term: ClientVerificationRefreshRequest
+    definition: 'Object declared by the contract with fields: user, report, loan, billing.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationRefreshRequest
+  - term: ClientVerificationReport
+    definition: Report information.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationReport
+  - term: ClientVerificationReportConfiguration
+    definition: Optional banking report configurations.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationReportConfiguration
+  - term: ClientVerificationStatus
+    definition: Verification status information.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationStatus
+  - term: ClientVerificationUpdateRequest
+    definition: Request body for updating a verification. - `loan` and `billing` can be updated for either data source. - `loan.division` cannot
+      be changed. - `employments` can only be updated when a document verification is in the `PAUSED` state. - Updating `employments` replaces
+      the full employments array.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/ClientVerificationUpdateRequest
+  - term: CreateUserTokenRequest
+    definition: 'Object declared by the contract with fields: user.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/CreateUserTokenRequest
+  - term: CreateUserTokenResponse
+    definition: 'Object declared by the contract with fields: user_token.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/CreateUserTokenResponse
+  - term: Deduction
+    definition: 'Object declared by the contract with fields: amount, name, tax_classification, amount_ytd.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/Deduction
+  - term: DepositDestination
+    definition: 'Object declared by the contract with fields: id, account, employer, destination_type, status, allocation_type, currency, allocation_value,
+      method, ach_deposit_account, card, acss_debit. (3 more)'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/DepositDestination
+  - term: Destination
+    definition: 'Object declared by the contract with fields: reference, amount, method, ach_deposit_account, card.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/Destination
+  - term: Employer
+    definition: 'Object declared by the contract with fields: id, name, logo_url, kind, mapping_status, status.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/Employer
+  - term: Employment
+    definition: 'Object declared by the contract with fields: id, account, user, created_at, employer, employment_status, origin.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/Employment
+  - term: FilingStatus
+    definition: 'Object declared by the contract with fields: type, location, status.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/FilingStatus
+  - term: Gig
+    definition: 'Object declared by the contract with fields: id, account, employer, created_at, updated_at, status, type, task_count, start_datetime,
+      end_datetime, all_datetimes, duration. (11 more)'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/Gig
+  - term: GrossPay
+    definition: 'Object declared by the contract with fields: name, type, start_date, end_date, rate, hours, amount, hours_ytd, amount_ytd.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/GrossPay
+  - term: GrossPayTotal
+    definition: 'Object declared by the contract with fields: amount, amount_ytd, hours, hours_ytd, rate_implied, rate_implied_ytd.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/GrossPayTotal
+  - term: Identity
+    definition: 'Object declared by the contract with fields: id, account, address, first_name, last_name, full_name, birth_date, email, phone_number,
+      picture_url, employment_status, employment_type. (16 more)'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/Identity
+  - term: InviteDelivery
+    definition: 'Object declared by the contract with fields: id, method, status, sent_at, updated_at.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/InviteDelivery
+  - term: InviteObject
+    definition: 'Object declared by the contract with fields: id, user, user_token, email, phone_number, full_name, first_name, last_name, revoked_at,
+      status, group_id, url. (8 more)'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/InviteObject
+  - term: Item
+    definition: 'Object declared by the contract with fields: id, name, kind, known_limitations, status, status_details, logo_url, is_grouping,
+      mapping_status, matching_score, features.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/Item
+  - term: OcrDocument
+    definition: Contains OCR and authenticity results for one document detected within an uploaded file.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/OcrDocument
+  - term: OpenBankingBankAccount
+    definition: 'Object declared by the contract with fields: id, user, account_number_display, name, type, aggregation_status_code, status, institution,
+      aggregation_success_date, aggregation_attempt_date, created_date, currency. (16 more)'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/OpenBankingBankAccount
+  - term: PartnerAddress
+    definition: Address of the user.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerAddress
+  - term: PartnerBirthDate
+    definition: Date of birth in year-month-day format.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerBirthDate
+  - term: PartnerBroker
+    definition: Mortgage broker contact details for [wholesale borrower invites](/partners/wholesale-mortgage).
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerBroker
+  - term: PartnerCreateUserResponse
+    definition: Response returned after creating a partner user.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerCreateUserResponse
+  - term: Embedded
+    definition: 'Object declared by the contract with fields: verification, type, configuration.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerEmbeddedSessionCreateRequest
+  - term: Invites
+    definition: 'Object declared by the contract with fields: id, user, type, configuration, link, invite.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerInviteSession
+  - term: PartnerInviteSessionConfiguration
+    definition: 'Object declared by the contract with fields: flow_id, items, reply_to, email, phone_number.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerInviteSessionConfiguration
+  - term: PartnerInviteSessionCreateConfiguration
+    definition: 'Object declared by the contract with fields: flow_id, items, reply_to, email, phone_number.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerInviteSessionCreateConfiguration
+  - term: Invites
+    definition: 'Object declared by the contract with fields: user, type, configuration.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerInviteSessionCreateRequest
+  - term: PartnerInviteSessionDelivery
+    definition: 'Object declared by the contract with fields: id, method, status, sent_at, updated_at.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerInviteSessionDelivery
+  - term: PartnerInviteSessionInvite
+    definition: 'Object declared by the contract with fields: status, deliveries, invited_at, created_at, updated_at.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerInviteSessionInvite
+  - term: PartnerOcrDocument
+    definition: Contains OCR and authenticity results for one document detected within an uploaded file.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerOcrDocument
+  - term: PartnerOpenBanking
+    definition: Banking-specific user metadata.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerOpenBanking
+  - term: PartnerOpenBankingEndUser
+    definition: Contains details about the person or entity making the lending decision.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerOpenBankingEndUser
+  - term: PartnerPaystub
+    definition: 'Object declared by the contract with fields: id, account, payroll_document, deduction_list, filing_status, tax_list, status,
+      paystub_date, paystub_period, currency, gross_pay, deductions. (19 more)'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerPaystub
+  - term: PartnerReportCustomField
+    definition: Custom field returned in report JSON as a pass-through value.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerReportCustomField
+  - term: Embedded
+    definition: 'Object declared by the contract with fields: verification, configuration, link, data_source.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerSession
+  - term: PartnerSessionCreateConfiguration
+    definition: Connection session configuration for payroll and banking verifications.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerSessionCreateConfiguration
+  - term: PartnerUser
+    definition: Partner user object.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerUser
+  - term: PartnerUserCreateRequest
+    definition: 'Object declared by the contract with fields: client, first_name, last_name, email, phone_number, ssn, address, birth_date, external_metadata,
+      open_banking, external_id.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerUserCreateRequest
+  - term: PartnerUserUpdateRequest
+    definition: 'Object declared by the contract with fields: first_name, last_name, email, phone_number, ssn, address, birth_date, external_metadata,
+      open_banking, external_id.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerUserUpdateRequest
+  - term: PartnerUserUpload
+    definition: 'Object declared by the contract with fields: id, account, document_type, file_url, file_name, metadata, processing, created_at,
+      updated_at.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerUserUpload
+  - term: PartnerVerification
+    definition: 'Object declared by the contract with fields: id, user, client, created_at, updated_at, channel, status, report, employments,
+      loan, billing, configuration. (1 more)'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerVerification
+  - term: PartnerVerificationBilling
+    definition: Optional billing details for regular payroll and mortgage verification workflows.
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerVerificationBilling
+  - term: PartnerVerificationConfiguration
+    definition: 'Object declared by the contract with fields: notified_recipients.'
+    tags:
+    - Object
+    source: openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/PartnerVerificationConfiguration

@@ -1,0 +1,24 @@
+generated: '2026-09-26'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.argyle.com/overview/sandbox-testing.md
+sources:
+- https://docs.argyle.com/overview/sandbox-testing.md
+description: Sandbox testing for Argyle
+modes:
+- name: sandbox
+  base_url: https://api-sandbox.argyle.com/v2
+  how_to_get_access: Create a Sandbox API key and secret in the Developers section of the Argyle Console (https://console.argyle.com/api-keys).
+    The Sandbox mode toggle must be enabled in Console for the key to work in the sandbox environment.
+test_values:
+- kind: test_password_response_example
+  value: '{"test_password": "eyJmYWlsdXJlIjogeyJmYWlsX29uIjogImNvbm5lY3Rpb24iLCAiZXJyb3IiOiAiYWNjb3VudF9kaXNhYmxlZCJ9fQ=="}'
+triggers:
+- POST https://api-sandbox.argyle.com/v2/accounts/{acc-id}/periodic-scan (empty body) – simulates a data refresh adding 1‑5 new paystubs and gig
+  events.
+- POST https://api-sandbox.argyle.com/v2/test-password/encode with JSON body specifying failure type – returns a test_password that can be used
+  to trigger connection or disconnection errors.
+note: Sample users are deleted after 60 days. Billing features are not supported in Sandbox. 3 extracted row(s) were dropped because their quote
+  was not on the page.
+docs:
+- https://docs.argyle.com/overview/sandbox-testing.md

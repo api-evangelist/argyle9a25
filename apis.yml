@@ -1,23 +1,131 @@
 aid: argyle9a25
 name: Argyle9a25
-description: 'Argyle9a25 is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+image: https://cdn.prod.website-files.com/688c7b2d192925022748f4ee/6a0f4974c50dc442c70f84f1_Homepage.avif
+description: Argyle9a25 is a stub entry for the company Argyle, which provides automated income, employment, and asset verification services.
+  Their platform offers APIs for payroll verification, direct banking data, and various use cases across mortgage, personal lending, government
+  benefits, background checks, and tenant screening. Argyle enables lenders and brokers to integrate verification flows quickly, with a web-based
+  console and developer-friendly documentation.
 url: https://raw.githubusercontent.com/api-evangelist/argyle9a25/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-26 (modular-v1; was harvest)
 specificationVersion: '0.20'
 created: '2026-09-26'
 modified: '2026-09-26'
 tags:
 - Company
-apis: []
+- FinTech
+- Verification
+- API
+- Payroll
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Spectral
+  url: rules/argyle9a25-rules.yml
+- type: JSONLD
+  url: json-ld/argyle9a25-context.jsonld
+- type: Vocabulary
+  url: vocabulary/argyle9a25-vocabulary.yml
+- type: Conformance
+  url: conformance/argyle9a25-conformance.yml
+- type: Webhooks
+  url: asyncapi/argyle9a25-webhooks.yml
+- type: DataModel
+  url: data-model/argyle9a25-data-model.yml
+- type: Sandbox
+  url: sandbox/argyle9a25-sandbox.yml
+- type: Security
+  url: security/argyle9a25-vulnerability-disclosure.yml
+- type: Authentication
+  url: authentication/argyle9a25-authentication.yml
+- type: LLMsTxt
+  url: llms/argyle9a25-llms.txt
+- type: AgentCard
+  url: a2a/argyle9a25-a2a.yml
+- type: SecurityTxt
+  url: well-known/argyle9a25-status-security.txt
+- type: SecurityTxt
+  url: well-known/argyle9a25-security.txt
+- type: SecurityTxt
+  url: well-known/argyle9a25-argyle-security.txt
+- type: WellKnown
+  url: well-known/argyle9a25-well-known.yml
+- type: Hosts
+  url: hosts/argyle9a25-hosts.yml
+- type: Vendors
+  url: vendors/argyle9a25-vendors.yml
+- type: TrustCenter
+  url: https://trust.argyle.com/
+- type: Support
+  url: https://support.argyle.com/hc/en-us
+- type: StatusPage
+  url: https://status.argyle.com/
+- type: Sandbox
+  url: https://www.argyle.com/platform-overview/console
+- type: PrivacyPolicy
+  url: https://www.argyle.com/legal/consumers/privacy-notice
+- type: Newsroom
+  url: https://www.argyle.com/resources/press/integration-los-byte
+- type: Login
+  url: https://console.argyle.com/sign-in
+- type: Blog
+  url: https://www.argyle.com/blog
+- type: GettingStarted
+  url: https://docs.argyle.com/verifications/quickstart
+- type: Documentation
+  url: https://docs.argyle.com/
+- type: APIReference
+  url: https://docs.argyle.com/llms.txt
+- type: VulnerabilityDisclosure
+  url: security/argyle9a25-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/argyle9a25-domain-security.yml
 - type: Website
-  url: https://equityzen.com/company/argyle9a25
+  url: https://www.argyle.com
+apis:
+- name: Argyle API
+  description: Argyle OpenAPI spec providing verification endpoints.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  aid: argyle9a25:argyle-api
+- aid: argyle9a25:argyle-api-openapi-api
+  name: Argyle API Openapi API
+  description: 'Argyle API Openapi API: 89 operations.'
+  humanURL: https://docs.argyle.com/llms.txt
+  baseURL: https://api-sandbox.argyle.com/v2
+  properties:
+  - type: OpenAPI
+    url: openapi/_original/argyle9a25-openapi-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+x-coverage:
+  state: none
+  reason: no-developer-program
+  method: derived
+  generated: '2026-09-26'
+  generator: derive-coverage.py (pre-flight evidence)
+  detail: the company publishes no developer documentation host and no machine-readable contract on its own domain
+  evidence:
+  - url: https://equityzen.com/company/argyle9a25
+    status: 403
+x-enrichment:
+  date: '2026-09-26'
+  status: enriched
+  artifacts_added: 18
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local

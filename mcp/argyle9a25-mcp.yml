@@ -1,0 +1,214 @@
+generated: '2026-09-26'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/_original/argyle9a25-openapi-openapi.yml
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+note: No MCP server was found. The pre-flight posted tools/list to /mcp on api.argyle.com, www.argyle.com, argyle.com, changelog.argyle.com; verdict
+  absent. Candidate tools below are derived from the 89 operation(s) in the provider's own OpenAPI (40 listed); they describe what a server WOULD
+  expose, not one that exists.
+tools:
+- name: post_users
+  operationId: postUsers
+  method: POST
+  path: /users
+  description: Create a user
+- name: get_users
+  operationId: getUsers
+  method: GET
+  path: /users
+  description: List all users
+- name: get_users_by_id
+  operationId: getUsersById
+  method: GET
+  path: /users/{id}
+  description: Retrieve a user
+- name: patch_users_by_id
+  operationId: patchUsersById
+  method: PATCH
+  path: /users/{id}
+  description: Update a user
+- name: delete_users_by_id
+  operationId: deleteUsersById
+  method: DELETE
+  path: /users/{id}
+  description: Delete a user
+- name: post_user_tokens
+  operationId: postUserTokens
+  method: POST
+  path: /user-tokens
+  description: Create a user token
+- name: post_invites
+  operationId: postInvites
+  method: POST
+  path: /invites
+  description: Send an invite
+- name: get_invites
+  operationId: getInvites
+  method: GET
+  path: /invites
+  description: List all invites
+- name: get_invites_by_id
+  operationId: getInvitesById
+  method: GET
+  path: /invites/{id}
+  description: Retrieve an invite
+- name: post_invites_by_id
+  operationId: postInvitesById
+  method: POST
+  path: /invites/{id}
+  description: Re-send an invite
+- name: post_invites_by_id_revoke
+  operationId: postInvitesByIdRevoke
+  method: POST
+  path: /invites/{id}/revoke
+  description: Revoke an invite
+- name: get_accounts
+  operationId: getAccounts
+  method: GET
+  path: /accounts
+  description: List all accounts
+- name: get_accounts_by_id
+  operationId: getAccountsById
+  method: GET
+  path: /accounts/{id}
+  description: Retrieve an account
+- name: delete_accounts_by_id
+  operationId: deleteAccountsById
+  method: DELETE
+  path: /accounts/{id}
+  description: Delete an account
+- name: post_accounts_by_id_disable_ongoing_refresh
+  operationId: postAccountsByIdDisableOngoingRefresh
+  method: POST
+  path: /accounts/{id}/disable-ongoing-refresh
+  description: Disable account updates
+- name: get_employments
+  operationId: getEmployments
+  method: GET
+  path: /employments
+  description: List all employments
+- name: get_items
+  operationId: getItems
+  method: GET
+  path: /items
+  description: List all Items
+- name: get_items_by_id
+  operationId: getItemsById
+  method: GET
+  path: /items/{id}
+  description: Retrieve an Item
+- name: post_item_filters
+  operationId: postItemFilters
+  method: POST
+  path: /item-filters
+  description: Create an Item filter
+- name: get_item_filters
+  operationId: getItemFilters
+  method: GET
+  path: /item-filters
+  description: List all Item filters
+- name: get_item_filters_by_id
+  operationId: getItemFiltersById
+  method: GET
+  path: /item-filters/{id}
+  description: Retrieve an Item filter
+- name: put_item_filters_by_id
+  operationId: putItemFiltersById
+  method: PUT
+  path: /item-filters/{id}
+  description: Replace an Item filter
+- name: delete_item_filters_by_id
+  operationId: deleteItemFiltersById
+  method: DELETE
+  path: /item-filters/{id}
+  description: Delete an Item filter
+- name: post_item_migrations
+  operationId: postItemMigrations
+  method: POST
+  path: /item-migrations
+  description: Migrate a Link item ID
+- name: list_employers
+  operationId: listEmployers
+  method: GET
+  path: /employer-search
+  description: List all employers
+- name: get_identities
+  operationId: getIdentities
+  method: GET
+  path: /identities
+  description: List all identities
+- name: get_identities_by_id
+  operationId: getIdentitiesById
+  method: GET
+  path: /identities/{id}
+  description: Retrieve an identity
+- name: get_paystubs
+  operationId: getPaystubs
+  method: GET
+  path: /paystubs
+  description: List all paystubs
+- name: get_paystubs_by_id
+  operationId: getPaystubsById
+  method: GET
+  path: /paystubs/{id}
+  description: Retrieve a paystub
+- name: get_payroll_documents
+  operationId: getPayrollDocuments
+  method: GET
+  path: /payroll-documents
+  description: List all payroll documents
+- name: get_payroll_documents_by_id
+  operationId: getPayrollDocumentsById
+  method: GET
+  path: /payroll-documents/{id}
+  description: Retrieve a payroll document
+- name: get_deposit_destinations
+  operationId: getDepositDestinations
+  method: GET
+  path: /deposit-destinations
+  description: List all deposit destinations
+- name: get_deposit_destinations_by_id
+  operationId: getDepositDestinationsById
+  method: GET
+  path: /deposit-destinations/{id}
+  description: Retrieve a deposit destination
+- name: get_shifts
+  operationId: getShifts
+  method: GET
+  path: /shifts
+  description: List all shifts
+- name: get_shifts_by_id
+  operationId: getShiftsById
+  method: GET
+  path: /shifts/{id}
+  description: Retrieve a shift
+- name: get_gigs
+  operationId: getGigs
+  method: GET
+  path: /gigs
+  description: List all gigs
+- name: get_gigs_by_id
+  operationId: getGigsById
+  method: GET
+  path: /gigs/{id}
+  description: Retrieve a gig
+- name: get_vehicles
+  operationId: getVehicles
+  method: GET
+  path: /vehicles
+  description: List all vehicles
+- name: get_vehicles_by_id
+  operationId: getVehiclesById
+  method: GET
+  path: /vehicles/{id}
+  description: Retrieve a vehicle
+- name: get_ratings
+  operationId: getRatings
+  method: GET
+  path: /ratings
+  description: List all ratings

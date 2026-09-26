@@ -1,0 +1,3 @@
+Contact: mailto:security@argyle.com
+Encryption: https://argyle.com/pgp_key.asc
+Expires: 2027-05-07T00:00:00.000Z

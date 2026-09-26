@@ -1,0 +1,16 @@
+generated: '2026-09-26'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.argyle.com/verifications/quickstart.md
+sources:
+- https://docs.argyle.com/verifications/quickstart.md
+- https://docs.argyle.com/partners/quickstart.md
+- https://docs.argyle.com/integrations/pos-los/encompass/setup-guide.md
+description: Send API requests from your backend using HTTP basic authentication.
+schemes:
+- type: http-basic
+  name: basic
+  evidence: Send API requests from your backend using [HTTP basic authentication](/api-guide/overview#authentication).
+  location: header
+  header: Authorization
+docs: https://docs.argyle.com/verifications/quickstart.md

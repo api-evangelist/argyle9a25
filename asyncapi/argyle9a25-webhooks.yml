@@ -1,0 +1,23 @@
+generated: '2026-09-26'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.argyle.com/api-guide/webhooks.md
+sources:
+- https://docs.argyle.com/api-guide/webhooks.md
+- https://docs.argyle.com/console/management/webhooks.md
+description: Argyle webhooks notify your backend when verification, account, rating, and data sync events occur.
+events:
+- event: verifications.updated
+  description: Sent when a verification lifecycle is updated.
+- event: verifications.creation_failed
+  description: Sent when a verification creation fails.
+- event: ratings.added
+  description: Sent every time a new rating is available for any connected account.
+- event: partially_synced
+  description: Sent after a specified number of days of data have been synced during the initial data retrieval of a newly connected account.
+delivery:
+  signature: X-Argyle-Signature header (HMAC‑SHA512 of raw body using the subscription secret)
+  content_type: application/json (raw request body is signed, not re‑encoded)
+note: 'Deliveries are sent from four static IP addresses: 34.27.251.226, 34.122.50.253, 35.188.163.115, 35.226.53.251. Subscriptions may include
+  an optional secret to enable signature verification.'
+docs: https://docs.argyle.com/api-guide/webhooks.md

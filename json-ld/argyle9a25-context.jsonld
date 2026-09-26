@@ -1,0 +1,1055 @@
+{
+  "@context": {
+    "@vocab": "https://argyle.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "argyle9a25": "https://argyle.com/schema#",
+    "ConsolidatedWebhookSubscriptionRequest": "argyle9a25:ConsolidatedWebhookSubscriptionRequest",
+    "events": {
+      "@id": "argyle9a25:events",
+      "@container": "@list"
+    },
+    "name": {
+      "@id": "argyle9a25:name",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "argyle9a25:url",
+      "@type": "xsd:string"
+    },
+    "secret": {
+      "@id": "argyle9a25:secret",
+      "@type": "xsd:string"
+    },
+    "config": {
+      "@id": "argyle9a25:config"
+    },
+    "ConsolidatedWebhookSubscriptionResponse": "argyle9a25:ConsolidatedWebhookSubscriptionResponse",
+    "id": {
+      "@id": "argyle9a25:id",
+      "@type": "xsd:string"
+    },
+    "created_at": {
+      "@id": "argyle9a25:created_at",
+      "@type": "xsd:dateTime"
+    },
+    "updated_at": {
+      "@id": "argyle9a25:updated_at",
+      "@type": "xsd:dateTime"
+    },
+    "last_sent_at": {
+      "@id": "argyle9a25:last_sent_at",
+      "@type": "xsd:dateTime"
+    },
+    "ConsolidatedWebhookEventPayload": "argyle9a25:ConsolidatedWebhookEventPayload",
+    "event": {
+      "@id": "argyle9a25:event",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "argyle9a25:data"
+    },
+    "Account": "argyle9a25:Account",
+    "user": {
+      "@id": "argyle9a25:user",
+      "@type": "xsd:string"
+    },
+    "employers": {
+      "@id": "argyle9a25:employers",
+      "@container": "@list"
+    },
+    "item": {
+      "@id": "argyle9a25:item",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "argyle9a25:source",
+      "@type": "xsd:string"
+    },
+    "scanned_at": {
+      "@id": "argyle9a25:scanned_at",
+      "@type": "xsd:dateTime"
+    },
+    "connection": {
+      "@id": "argyle9a25:connection"
+    },
+    "direct_deposit_switch": {
+      "@id": "argyle9a25:direct_deposit_switch"
+    },
+    "availability": {
+      "@id": "argyle9a25:availability"
+    },
+    "ongoing_refresh": {
+      "@id": "argyle9a25:ongoing_refresh"
+    },
+    "Address": "argyle9a25:Address",
+    "city": {
+      "@id": "argyle9a25:city",
+      "@type": "xsd:string"
+    },
+    "line1": {
+      "@id": "argyle9a25:line1",
+      "@type": "xsd:string"
+    },
+    "line2": {
+      "@id": "argyle9a25:line2",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "argyle9a25:state",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "argyle9a25:country",
+      "@type": "xsd:string"
+    },
+    "postal_code": {
+      "@id": "argyle9a25:postal_code",
+      "@type": "xsd:string"
+    },
+    "AvailabilityItem": "argyle9a25:AvailabilityItem",
+    "status": {
+      "@id": "argyle9a25:status",
+      "@type": "xsd:string"
+    },
+    "available_count": {
+      "@id": "argyle9a25:available_count",
+      "@type": "xsd:integer"
+    },
+    "files_count": {
+      "@id": "argyle9a25:files_count",
+      "@type": "xsd:integer"
+    },
+    "in_progress_count": {
+      "@id": "argyle9a25:in_progress_count",
+      "@type": "xsd:integer"
+    },
+    "available_from": {
+      "@id": "argyle9a25:available_from",
+      "@type": "xsd:dateTime"
+    },
+    "available_to": {
+      "@id": "argyle9a25:available_to",
+      "@type": "xsd:dateTime"
+    },
+    "BankingReport": "argyle9a25:BankingReport",
+    "reference_id": {
+      "@id": "argyle9a25:reference_id",
+      "@type": "xsd:string"
+    },
+    "generated_at": {
+      "@id": "argyle9a25:generated_at",
+      "@type": "xsd:dateTime"
+    },
+    "type": {
+      "@id": "argyle9a25:type",
+      "@type": "xsd:string"
+    },
+    "file_url": {
+      "@id": "argyle9a25:file_url",
+      "@type": "xsd:string"
+    },
+    "json_url": {
+      "@id": "argyle9a25:json_url",
+      "@type": "xsd:string"
+    },
+    "accounts": {
+      "@id": "argyle9a25:accounts",
+      "@container": "@list"
+    },
+    "last_synced_at": {
+      "@id": "argyle9a25:last_synced_at",
+      "@type": "xsd:dateTime"
+    },
+    "external_id": {
+      "@id": "argyle9a25:external_id",
+      "@type": "xsd:string"
+    },
+    "metadata": {
+      "@id": "argyle9a25:metadata"
+    },
+    "BankingReportCustomField": "argyle9a25:BankingReportCustomField",
+    "label": {
+      "@id": "argyle9a25:label",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "argyle9a25:value",
+      "@type": "xsd:string"
+    },
+    "shown": {
+      "@id": "argyle9a25:shown",
+      "@type": "xsd:boolean"
+    },
+    "BankingReportRequest": "argyle9a25:BankingReportRequest",
+    "webhook": {
+      "@id": "argyle9a25:webhook",
+      "@type": "@id"
+    },
+    "bank_accounts": {
+      "@id": "argyle9a25:bank_accounts",
+      "@container": "@list"
+    },
+    "from_date": {
+      "@id": "argyle9a25:from_date",
+      "@type": "xsd:dateTime"
+    },
+    "income_from_date": {
+      "@id": "argyle9a25:income_from_date",
+      "@type": "xsd:dateTime"
+    },
+    "report_custom_fields": {
+      "@id": "argyle9a25:report_custom_fields",
+      "@container": "@list"
+    },
+    "income_stream_confidence_minimum": {
+      "@id": "argyle9a25:income_stream_confidence_minimum",
+      "@type": "xsd:integer"
+    },
+    "BasePay": "argyle9a25:BasePay",
+    "amount": {
+      "@id": "argyle9a25:amount",
+      "@type": "xsd:string"
+    },
+    "period": {
+      "@id": "argyle9a25:period",
+      "@type": "xsd:string"
+    },
+    "currency": {
+      "@id": "argyle9a25:currency",
+      "@type": "xsd:string"
+    },
+    "Broker": "argyle9a25:Broker",
+    "phone_number": {
+      "@id": "argyle9a25:phone_number",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "argyle9a25:email",
+      "@type": "xsd:string"
+    },
+    "nmls": {
+      "@id": "argyle9a25:nmls",
+      "@type": "xsd:string"
+    },
+    "ClientEmbeddedSessionCreateRequest": "argyle9a25:ClientEmbeddedSessionCreateRequest",
+    "verification": {
+      "@id": "argyle9a25:verification",
+      "@type": "xsd:string"
+    },
+    "configuration": {
+      "@id": "argyle9a25:configuration",
+      "@type": "@id"
+    },
+    "ClientInviteSession": "argyle9a25:ClientInviteSession",
+    "link": {
+      "@id": "argyle9a25:link",
+      "@type": "@id"
+    },
+    "invite": {
+      "@id": "argyle9a25:invite",
+      "@type": "@id"
+    },
+    "ClientInviteSessionConfiguration": "argyle9a25:ClientInviteSessionConfiguration",
+    "flow_id": {
+      "@id": "argyle9a25:flow_id",
+      "@type": "xsd:string"
+    },
+    "items": {
+      "@id": "argyle9a25:items",
+      "@container": "@list"
+    },
+    "reply_to": {
+      "@id": "argyle9a25:reply_to",
+      "@type": "xsd:string"
+    },
+    "ClientInviteSessionCreateConfiguration": "argyle9a25:ClientInviteSessionCreateConfiguration",
+    "ClientInviteSessionCreateRequest": "argyle9a25:ClientInviteSessionCreateRequest",
+    "ClientInviteSessionDelivery": "argyle9a25:ClientInviteSessionDelivery",
+    "method": {
+      "@id": "argyle9a25:method",
+      "@type": "xsd:string"
+    },
+    "sent_at": {
+      "@id": "argyle9a25:sent_at",
+      "@type": "xsd:dateTime"
+    },
+    "ClientInviteSessionInvite": "argyle9a25:ClientInviteSessionInvite",
+    "deliveries": {
+      "@id": "argyle9a25:deliveries",
+      "@container": "@list"
+    },
+    "invited_at": {
+      "@id": "argyle9a25:invited_at",
+      "@type": "xsd:dateTime"
+    },
+    "ClientReportCustomField": "argyle9a25:ClientReportCustomField",
+    "ClientSession": "argyle9a25:ClientSession",
+    "data_source": {
+      "@id": "argyle9a25:data_source",
+      "@type": "xsd:string"
+    },
+    "ClientSessionCreateConfiguration": "argyle9a25:ClientSessionCreateConfiguration",
+    "experience": {
+      "@id": "argyle9a25:experience",
+      "@type": "xsd:string"
+    },
+    "single_use_url": {
+      "@id": "argyle9a25:single_use_url",
+      "@type": "xsd:boolean"
+    },
+    "redirect_url": {
+      "@id": "argyle9a25:redirect_url",
+      "@type": "xsd:string"
+    },
+    "language": {
+      "@id": "argyle9a25:language",
+      "@type": "xsd:string"
+    },
+    "mobile_app": {
+      "@id": "argyle9a25:mobile_app",
+      "@type": "xsd:boolean"
+    },
+    "ClientVerification": "argyle9a25:ClientVerification",
+    "channel": {
+      "@id": "argyle9a25:channel",
+      "@type": "xsd:string"
+    },
+    "report": {
+      "@id": "argyle9a25:report",
+      "@type": "@id"
+    },
+    "employments": {
+      "@id": "argyle9a25:employments",
+      "@container": "@list"
+    },
+    "loan": {
+      "@id": "argyle9a25:loan",
+      "@type": "@id"
+    },
+    "billing": {
+      "@id": "argyle9a25:billing",
+      "@type": "@id"
+    },
+    "ClientVerificationBilling": "argyle9a25:ClientVerificationBilling",
+    "cost_center": {
+      "@id": "argyle9a25:cost_center",
+      "@type": "xsd:string"
+    },
+    "ClientVerificationConfiguration": "argyle9a25:ClientVerificationConfiguration",
+    "notified_recipients": {
+      "@id": "argyle9a25:notified_recipients",
+      "@container": "@list"
+    },
+    "ClientVerificationCreateConfiguration": "argyle9a25:ClientVerificationCreateConfiguration",
+    "ClientVerificationCreateReportRequest": "argyle9a25:ClientVerificationCreateReportRequest",
+    "self_certification": {
+      "@id": "argyle9a25:self_certification",
+      "@type": "xsd:boolean"
+    },
+    "ClientVerificationCreateRequest": "argyle9a25:ClientVerificationCreateRequest",
+    "ClientVerificationEmployment": "argyle9a25:ClientVerificationEmployment",
+    "employer": {
+      "@id": "argyle9a25:employer",
+      "@type": "xsd:string"
+    },
+    "hire_date": {
+      "@id": "argyle9a25:hire_date",
+      "@type": "xsd:date"
+    },
+    "termination_date": {
+      "@id": "argyle9a25:termination_date",
+      "@type": "xsd:date"
+    },
+    "ClientVerificationError": "argyle9a25:ClientVerificationError",
+    "code": {
+      "@id": "argyle9a25:code",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "argyle9a25:title",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "argyle9a25:message",
+      "@type": "xsd:string"
+    },
+    "resources": {
+      "@id": "argyle9a25:resources",
+      "@container": "@list"
+    },
+    "ClientVerificationErrorResource": "argyle9a25:ClientVerificationErrorResource",
+    "ClientVerificationLoan": "argyle9a25:ClientVerificationLoan",
+    "number": {
+      "@id": "argyle9a25:number",
+      "@type": "xsd:string"
+    },
+    "borrower_id": {
+      "@id": "argyle9a25:borrower_id",
+      "@type": "xsd:string"
+    },
+    "application_id": {
+      "@id": "argyle9a25:application_id",
+      "@type": "xsd:string"
+    },
+    "officer_email": {
+      "@id": "argyle9a25:officer_email",
+      "@type": "xsd:string"
+    },
+    "division": {
+      "@id": "argyle9a25:division",
+      "@type": "xsd:string"
+    },
+    "ClientVerificationLoanMetadata": "argyle9a25:ClientVerificationLoanMetadata",
+    "ClientVerificationRefreshReportRequest": "argyle9a25:ClientVerificationRefreshReportRequest",
+    "ClientVerificationRefreshRequest": "argyle9a25:ClientVerificationRefreshRequest",
+    "ClientVerificationReport": "argyle9a25:ClientVerificationReport",
+    "ClientVerificationReportConfiguration": "argyle9a25:ClientVerificationReportConfiguration",
+    "ClientVerificationStatus": "argyle9a25:ClientVerificationStatus",
+    "errors": {
+      "@id": "argyle9a25:errors",
+      "@container": "@list"
+    },
+    "ClientVerificationUpdateRequest": "argyle9a25:ClientVerificationUpdateRequest",
+    "CreateUserTokenRequest": "argyle9a25:CreateUserTokenRequest",
+    "CreateUserTokenResponse": "argyle9a25:CreateUserTokenResponse",
+    "user_token": {
+      "@id": "argyle9a25:user_token",
+      "@type": "xsd:string"
+    },
+    "Deduction": "argyle9a25:Deduction",
+    "tax_classification": {
+      "@id": "argyle9a25:tax_classification",
+      "@type": "xsd:string"
+    },
+    "amount_ytd": {
+      "@id": "argyle9a25:amount_ytd",
+      "@type": "xsd:string"
+    },
+    "DepositDestination": "argyle9a25:DepositDestination",
+    "account": {
+      "@id": "argyle9a25:account",
+      "@type": "xsd:string"
+    },
+    "destination_type": {
+      "@id": "argyle9a25:destination_type",
+      "@type": "xsd:string"
+    },
+    "allocation_type": {
+      "@id": "argyle9a25:allocation_type",
+      "@type": "xsd:string"
+    },
+    "allocation_value": {
+      "@id": "argyle9a25:allocation_value",
+      "@type": "xsd:string"
+    },
+    "ach_deposit_account": {
+      "@id": "argyle9a25:ach_deposit_account"
+    },
+    "card": {
+      "@id": "argyle9a25:card"
+    },
+    "acss_debit": {
+      "@id": "argyle9a25:acss_debit"
+    },
+    "Destination": "argyle9a25:Destination",
+    "reference": {
+      "@id": "argyle9a25:reference",
+      "@type": "xsd:string"
+    },
+    "Employer": "argyle9a25:Employer",
+    "logo_url": {
+      "@id": "argyle9a25:logo_url",
+      "@type": "xsd:string"
+    },
+    "kind": {
+      "@id": "argyle9a25:kind",
+      "@type": "xsd:string"
+    },
+    "mapping_status": {
+      "@id": "argyle9a25:mapping_status",
+      "@type": "xsd:string"
+    },
+    "Employment": "argyle9a25:Employment",
+    "employment_status": {
+      "@id": "argyle9a25:employment_status",
+      "@type": "xsd:string"
+    },
+    "origin": {
+      "@id": "argyle9a25:origin",
+      "@type": "xsd:string"
+    },
+    "FilingStatus": "argyle9a25:FilingStatus",
+    "location": {
+      "@id": "argyle9a25:location",
+      "@type": "xsd:string"
+    },
+    "Gig": "argyle9a25:Gig",
+    "task_count": {
+      "@id": "argyle9a25:task_count",
+      "@type": "xsd:integer"
+    },
+    "start_datetime": {
+      "@id": "argyle9a25:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "argyle9a25:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "all_datetimes": {
+      "@id": "argyle9a25:all_datetimes"
+    },
+    "duration": {
+      "@id": "argyle9a25:duration",
+      "@type": "xsd:integer"
+    },
+    "timezone": {
+      "@id": "argyle9a25:timezone",
+      "@type": "xsd:string"
+    },
+    "earning_type": {
+      "@id": "argyle9a25:earning_type",
+      "@type": "xsd:string"
+    },
+    "start_location": {
+      "@id": "argyle9a25:start_location"
+    },
+    "end_location": {
+      "@id": "argyle9a25:end_location"
+    },
+    "task_details": {
+      "@id": "argyle9a25:task_details"
+    },
+    "distance": {
+      "@id": "argyle9a25:distance",
+      "@type": "xsd:string"
+    },
+    "distance_unit": {
+      "@id": "argyle9a25:distance_unit",
+      "@type": "xsd:string"
+    },
+    "circumstances": {
+      "@id": "argyle9a25:circumstances"
+    },
+    "income": {
+      "@id": "argyle9a25:income"
+    },
+    "income_rates": {
+      "@id": "argyle9a25:income_rates"
+    },
+    "GrossPay": "argyle9a25:GrossPay",
+    "start_date": {
+      "@id": "argyle9a25:start_date",
+      "@type": "xsd:dateTime"
+    },
+    "end_date": {
+      "@id": "argyle9a25:end_date",
+      "@type": "xsd:dateTime"
+    },
+    "rate": {
+      "@id": "argyle9a25:rate",
+      "@type": "xsd:string"
+    },
+    "hours": {
+      "@id": "argyle9a25:hours",
+      "@type": "xsd:string"
+    },
+    "hours_ytd": {
+      "@id": "argyle9a25:hours_ytd",
+      "@type": "xsd:string"
+    },
+    "GrossPayTotal": "argyle9a25:GrossPayTotal",
+    "rate_implied": {
+      "@id": "argyle9a25:rate_implied",
+      "@type": "xsd:string"
+    },
+    "rate_implied_ytd": {
+      "@id": "argyle9a25:rate_implied_ytd",
+      "@type": "xsd:string"
+    },
+    "Identity": "argyle9a25:Identity",
+    "address": {
+      "@id": "argyle9a25:address",
+      "@type": "@id"
+    },
+    "first_name": {
+      "@id": "argyle9a25:first_name",
+      "@type": "xsd:string"
+    },
+    "last_name": {
+      "@id": "argyle9a25:last_name",
+      "@type": "xsd:string"
+    },
+    "full_name": {
+      "@id": "argyle9a25:full_name",
+      "@type": "xsd:string"
+    },
+    "birth_date": {
+      "@id": "argyle9a25:birth_date",
+      "@type": "xsd:date"
+    },
+    "picture_url": {
+      "@id": "argyle9a25:picture_url",
+      "@type": "xsd:string"
+    },
+    "employment_type": {
+      "@id": "argyle9a25:employment_type",
+      "@type": "xsd:string"
+    },
+    "job_title": {
+      "@id": "argyle9a25:job_title",
+      "@type": "xsd:string"
+    },
+    "ssn": {
+      "@id": "argyle9a25:ssn",
+      "@type": "xsd:string"
+    },
+    "marital_status": {
+      "@id": "argyle9a25:marital_status",
+      "@type": "xsd:string"
+    },
+    "gender": {
+      "@id": "argyle9a25:gender",
+      "@type": "xsd:string"
+    },
+    "original_hire_date": {
+      "@id": "argyle9a25:original_hire_date",
+      "@type": "xsd:date"
+    },
+    "termination_reason": {
+      "@id": "argyle9a25:termination_reason",
+      "@type": "xsd:string"
+    },
+    "employment": {
+      "@id": "argyle9a25:employment",
+      "@type": "xsd:string"
+    },
+    "base_pay": {
+      "@id": "argyle9a25:base_pay",
+      "@type": "@id"
+    },
+    "pay_cycle": {
+      "@id": "argyle9a25:pay_cycle",
+      "@type": "xsd:string"
+    },
+    "platform_ids": {
+      "@id": "argyle9a25:platform_ids",
+      "@type": "@id"
+    },
+    "InviteDelivery": "argyle9a25:InviteDelivery",
+    "InviteObject": "argyle9a25:InviteObject",
+    "revoked_at": {
+      "@id": "argyle9a25:revoked_at",
+      "@type": "xsd:dateTime"
+    },
+    "group_id": {
+      "@id": "argyle9a25:group_id",
+      "@type": "xsd:string"
+    },
+    "flow_items": {
+      "@id": "argyle9a25:flow_items",
+      "@container": "@list"
+    },
+    "invite_template_id": {
+      "@id": "argyle9a25:invite_template_id",
+      "@type": "xsd:string"
+    },
+    "Item": "argyle9a25:Item",
+    "known_limitations": {
+      "@id": "argyle9a25:known_limitations",
+      "@type": "xsd:string"
+    },
+    "status_details": {
+      "@id": "argyle9a25:status_details",
+      "@type": "xsd:string"
+    },
+    "is_grouping": {
+      "@id": "argyle9a25:is_grouping",
+      "@type": "xsd:boolean"
+    },
+    "matching_score": {
+      "@id": "argyle9a25:matching_score",
+      "@type": "xsd:string"
+    },
+    "features": {
+      "@id": "argyle9a25:features"
+    },
+    "OcrDocument": "argyle9a25:OcrDocument",
+    "ocr_data": {
+      "@id": "argyle9a25:ocr_data"
+    },
+    "ocr_authenticity": {
+      "@id": "argyle9a25:ocr_authenticity"
+    },
+    "ocr_authenticity_score": {
+      "@id": "argyle9a25:ocr_authenticity_score",
+      "@type": "xsd:integer"
+    },
+    "OpenBankingBankAccount": "argyle9a25:OpenBankingBankAccount",
+    "account_number_display": {
+      "@id": "argyle9a25:account_number_display",
+      "@type": "xsd:string"
+    },
+    "aggregation_status_code": {
+      "@id": "argyle9a25:aggregation_status_code",
+      "@type": "xsd:integer"
+    },
+    "institution": {
+      "@id": "argyle9a25:institution",
+      "@type": "xsd:string"
+    },
+    "aggregation_success_date": {
+      "@id": "argyle9a25:aggregation_success_date",
+      "@type": "xsd:dateTime"
+    },
+    "aggregation_attempt_date": {
+      "@id": "argyle9a25:aggregation_attempt_date",
+      "@type": "xsd:dateTime"
+    },
+    "created_date": {
+      "@id": "argyle9a25:created_date",
+      "@type": "xsd:dateTime"
+    },
+    "institution_login": {
+      "@id": "argyle9a25:institution_login",
+      "@type": "xsd:integer"
+    },
+    "display_position": {
+      "@id": "argyle9a25:display_position",
+      "@type": "xsd:integer"
+    },
+    "parent_bank_account": {
+      "@id": "argyle9a25:parent_bank_account",
+      "@type": "xsd:string"
+    },
+    "linked_account_date": {
+      "@id": "argyle9a25:linked_account_date",
+      "@type": "xsd:dateTime"
+    },
+    "error_code": {
+      "@id": "argyle9a25:error_code",
+      "@type": "xsd:string"
+    },
+    "error_message": {
+      "@id": "argyle9a25:error_message",
+      "@type": "xsd:string"
+    },
+    "real_account_number_last4": {
+      "@id": "argyle9a25:real_account_number_last4",
+      "@type": "xsd:string"
+    },
+    "balance": {
+      "@id": "argyle9a25:balance",
+      "@type": "xsd:decimal"
+    },
+    "balance_date": {
+      "@id": "argyle9a25:balance_date",
+      "@type": "xsd:dateTime"
+    },
+    "last_updated_date": {
+      "@id": "argyle9a25:last_updated_date",
+      "@type": "xsd:dateTime"
+    },
+    "market_segment": {
+      "@id": "argyle9a25:market_segment",
+      "@type": "xsd:string"
+    },
+    "line_of_business": {
+      "@id": "argyle9a25:line_of_business",
+      "@type": "xsd:string"
+    },
+    "line_of_business_source": {
+      "@id": "argyle9a25:line_of_business_source",
+      "@type": "xsd:string"
+    },
+    "line_of_business_confidence_score": {
+      "@id": "argyle9a25:line_of_business_confidence_score",
+      "@type": "xsd:decimal"
+    },
+    "last_transaction_date": {
+      "@id": "argyle9a25:last_transaction_date",
+      "@type": "xsd:dateTime"
+    },
+    "oldest_transaction_date": {
+      "@id": "argyle9a25:oldest_transaction_date",
+      "@type": "xsd:dateTime"
+    },
+    "PartnerAddress": "argyle9a25:PartnerAddress",
+    "PartnerBirthDate": "argyle9a25:PartnerBirthDate",
+    "year": {
+      "@id": "argyle9a25:year",
+      "@type": "xsd:integer"
+    },
+    "month": {
+      "@id": "argyle9a25:month",
+      "@type": "xsd:integer"
+    },
+    "day": {
+      "@id": "argyle9a25:day",
+      "@type": "xsd:integer"
+    },
+    "PartnerBroker": "argyle9a25:PartnerBroker",
+    "PartnerCreateUserResponse": "argyle9a25:PartnerCreateUserResponse",
+    "PartnerEmbeddedSessionCreateRequest": "argyle9a25:PartnerEmbeddedSessionCreateRequest",
+    "PartnerInviteSession": "argyle9a25:PartnerInviteSession",
+    "PartnerInviteSessionConfiguration": "argyle9a25:PartnerInviteSessionConfiguration",
+    "PartnerInviteSessionCreateConfiguration": "argyle9a25:PartnerInviteSessionCreateConfiguration",
+    "PartnerInviteSessionCreateRequest": "argyle9a25:PartnerInviteSessionCreateRequest",
+    "PartnerInviteSessionDelivery": "argyle9a25:PartnerInviteSessionDelivery",
+    "PartnerInviteSessionInvite": "argyle9a25:PartnerInviteSessionInvite",
+    "PartnerOcrDocument": "argyle9a25:PartnerOcrDocument",
+    "PartnerOpenBanking": "argyle9a25:PartnerOpenBanking",
+    "end_user": {
+      "@id": "argyle9a25:end_user",
+      "@type": "@id"
+    },
+    "PartnerOpenBankingEndUser": "argyle9a25:PartnerOpenBankingEndUser",
+    "zip": {
+      "@id": "argyle9a25:zip",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "argyle9a25:phone",
+      "@type": "xsd:string"
+    },
+    "PartnerPaystub": "argyle9a25:PartnerPaystub",
+    "payroll_document": {
+      "@id": "argyle9a25:payroll_document",
+      "@type": "xsd:string"
+    },
+    "deduction_list": {
+      "@id": "argyle9a25:deduction_list",
+      "@container": "@list"
+    },
+    "filing_status": {
+      "@id": "argyle9a25:filing_status",
+      "@container": "@list"
+    },
+    "tax_list": {
+      "@id": "argyle9a25:tax_list",
+      "@container": "@list"
+    },
+    "paystub_date": {
+      "@id": "argyle9a25:paystub_date",
+      "@type": "xsd:dateTime"
+    },
+    "paystub_period": {
+      "@id": "argyle9a25:paystub_period"
+    },
+    "gross_pay": {
+      "@id": "argyle9a25:gross_pay",
+      "@type": "xsd:string"
+    },
+    "deductions": {
+      "@id": "argyle9a25:deductions",
+      "@type": "xsd:string"
+    },
+    "taxes": {
+      "@id": "argyle9a25:taxes",
+      "@type": "xsd:string"
+    },
+    "net_pay": {
+      "@id": "argyle9a25:net_pay",
+      "@type": "xsd:string"
+    },
+    "reimbursements": {
+      "@id": "argyle9a25:reimbursements",
+      "@type": "xsd:string"
+    },
+    "fees": {
+      "@id": "argyle9a25:fees",
+      "@type": "xsd:string"
+    },
+    "net_pay_ytd": {
+      "@id": "argyle9a25:net_pay_ytd",
+      "@type": "xsd:string"
+    },
+    "gross_pay_ytd": {
+      "@id": "argyle9a25:gross_pay_ytd",
+      "@type": "xsd:string"
+    },
+    "employer_address": {
+      "@id": "argyle9a25:employer_address"
+    },
+    "destinations": {
+      "@id": "argyle9a25:destinations",
+      "@container": "@list"
+    },
+    "deductions_ytd": {
+      "@id": "argyle9a25:deductions_ytd",
+      "@type": "xsd:string"
+    },
+    "taxes_ytd": {
+      "@id": "argyle9a25:taxes_ytd",
+      "@type": "xsd:string"
+    },
+    "gross_pay_list": {
+      "@id": "argyle9a25:gross_pay_list",
+      "@container": "@list"
+    },
+    "gross_pay_list_totals": {
+      "@id": "argyle9a25:gross_pay_list_totals"
+    },
+    "PartnerReportCustomField": "argyle9a25:PartnerReportCustomField",
+    "PartnerSession": "argyle9a25:PartnerSession",
+    "PartnerSessionCreateConfiguration": "argyle9a25:PartnerSessionCreateConfiguration",
+    "PartnerUser": "argyle9a25:PartnerUser",
+    "items_connected": {
+      "@id": "argyle9a25:items_connected",
+      "@container": "@list"
+    },
+    "employers_connected": {
+      "@id": "argyle9a25:employers_connected",
+      "@container": "@list"
+    },
+    "external_metadata": {
+      "@id": "argyle9a25:external_metadata"
+    },
+    "PartnerUserCreateRequest": "argyle9a25:PartnerUserCreateRequest",
+    "client": {
+      "@id": "argyle9a25:client",
+      "@type": "xsd:string"
+    },
+    "open_banking": {
+      "@id": "argyle9a25:open_banking",
+      "@type": "@id"
+    },
+    "PartnerUserUpdateRequest": "argyle9a25:PartnerUserUpdateRequest",
+    "PartnerUserUpload": "argyle9a25:PartnerUserUpload",
+    "document_type": {
+      "@id": "argyle9a25:document_type",
+      "@type": "xsd:string"
+    },
+    "file_name": {
+      "@id": "argyle9a25:file_name",
+      "@type": "xsd:string"
+    },
+    "processing": {
+      "@id": "argyle9a25:processing"
+    },
+    "PartnerVerification": "argyle9a25:PartnerVerification",
+    "PartnerVerificationBilling": "argyle9a25:PartnerVerificationBilling",
+    "PartnerVerificationConfiguration": "argyle9a25:PartnerVerificationConfiguration",
+    "PartnerVerificationCreateConfiguration": "argyle9a25:PartnerVerificationCreateConfiguration",
+    "PartnerVerificationCreateReportRequest": "argyle9a25:PartnerVerificationCreateReportRequest",
+    "PartnerVerificationCreateRequest": "argyle9a25:PartnerVerificationCreateRequest",
+    "PartnerVerificationEmployment": "argyle9a25:PartnerVerificationEmployment",
+    "PartnerVerificationError": "argyle9a25:PartnerVerificationError",
+    "PartnerVerificationErrorResource": "argyle9a25:PartnerVerificationErrorResource",
+    "PartnerVerificationLoan": "argyle9a25:PartnerVerificationLoan",
+    "PartnerVerificationLoanMetadata": "argyle9a25:PartnerVerificationLoanMetadata",
+    "PartnerVerificationRefreshReportRequest": "argyle9a25:PartnerVerificationRefreshReportRequest",
+    "PartnerVerificationRefreshRequest": "argyle9a25:PartnerVerificationRefreshRequest",
+    "PartnerVerificationReport": "argyle9a25:PartnerVerificationReport",
+    "PartnerVerificationReportConfiguration": "argyle9a25:PartnerVerificationReportConfiguration",
+    "PartnerVerificationStatus": "argyle9a25:PartnerVerificationStatus",
+    "PartnerVerificationUpdateRequest": "argyle9a25:PartnerVerificationUpdateRequest",
+    "PayrollDocument": "argyle9a25:PayrollDocument",
+    "document_number": {
+      "@id": "argyle9a25:document_number",
+      "@type": "xsd:string"
+    },
+    "available_date": {
+      "@id": "argyle9a25:available_date",
+      "@type": "xsd:dateTime"
+    },
+    "expiration_date": {
+      "@id": "argyle9a25:expiration_date",
+      "@type": "xsd:dateTime"
+    },
+    "document_type_description": {
+      "@id": "argyle9a25:document_type_description",
+      "@type": "xsd:string"
+    },
+    "PayrollDocument_verifications-partners": "argyle9a25:PayrollDocument_verifications-partners",
+    "Paystub": "argyle9a25:Paystub",
+    "PlatformIds": "argyle9a25:PlatformIds",
+    "employee_id": {
+      "@id": "argyle9a25:employee_id",
+      "@type": "xsd:string"
+    },
+    "position_id": {
+      "@id": "argyle9a25:position_id",
+      "@type": "xsd:string"
+    },
+    "platform_user_id": {
+      "@id": "argyle9a25:platform_user_id",
+      "@type": "xsd:string"
+    },
+    "Rating": "argyle9a25:Rating",
+    "rating": {
+      "@id": "argyle9a25:rating",
+      "@type": "xsd:string"
+    },
+    "acceptance_rate": {
+      "@id": "argyle9a25:acceptance_rate",
+      "@type": "xsd:string"
+    },
+    "ontime_rate": {
+      "@id": "argyle9a25:ontime_rate",
+      "@type": "xsd:string"
+    },
+    "achievements": {
+      "@id": "argyle9a25:achievements",
+      "@container": "@list"
+    },
+    "rewards": {
+      "@id": "argyle9a25:rewards",
+      "@container": "@list"
+    },
+    "Report": "argyle9a25:Report",
+    "SendInviteRequest": "argyle9a25:SendInviteRequest",
+    "dds_config": {
+      "@id": "argyle9a25:dds_config"
+    },
+    "override_invite_template": {
+      "@id": "argyle9a25:override_invite_template"
+    },
+    "Shift": "argyle9a25:Shift",
+    "Tax": "argyle9a25:Tax",
+    "User": "argyle9a25:User",
+    "UserForm": "argyle9a25:UserForm",
+    "UserUpload": "argyle9a25:UserUpload",
+    "Vehicle": "argyle9a25:Vehicle",
+    "identification": {
+      "@id": "argyle9a25:identification",
+      "@type": "xsd:string"
+    },
+    "make": {
+      "@id": "argyle9a25:make",
+      "@type": "xsd:string"
+    },
+    "model": {
+      "@id": "argyle9a25:model",
+      "@type": "xsd:string"
+    },
+    "vin": {
+      "@id": "argyle9a25:vin",
+      "@type": "xsd:string"
+    },
+    "Webhook": "argyle9a25:Webhook",
+    "WebhookCreateRequest": "argyle9a25:WebhookCreateRequest",
+    "WebhookListResponse": "argyle9a25:WebhookListResponse",
+    "next": {
+      "@id": "argyle9a25:next",
+      "@type": "@id"
+    },
+    "previous": {
+      "@id": "argyle9a25:previous",
+      "@type": "@id"
+    },
+    "results": {
+      "@id": "argyle9a25:results",
+      "@container": "@list"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Argyle9a25 API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Argyle9a25's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-09-26) from openapi/_original/argyle9a25-openapi-openapi.yml.",
+  "dcterms:created": "2026-09-26",
+  "dcterms:source": [
+    "openapi/_original/argyle9a25-openapi-openapi.yml"
+  ]
+}

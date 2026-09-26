@@ -1,0 +1,423 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argyle9a25/main/json-schema/argyle9a25-gig-schema.json",
+  "title": "Gig",
+  "x-generated": "2026-09-26",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_original/argyle9a25-openapi-openapi.yml#/components/schemas/Gig",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique ID of the gig assignment."
+    },
+    "account": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique ID of the account associated with the gig assignment."
+    },
+    "employer": {
+      "type": "string",
+      "description": "Employer name."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the gig object was created.\n"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when a property value of the gig object most recently changed.\n"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "scheduled",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ],
+      "description": "Current state of the gig assignment."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "delivery",
+        "rideshare",
+        "hourly",
+        "services"
+      ],
+      "description": "The type of gig assignment."
+    },
+    "task_count": {
+      "type": "integer",
+      "description": "Number of discrete tasks in the gig assignment.\n\n**Note:**\nWhen `task_count` is greater than 1 (e.g. two pickups in one delivery), the gig object contains aggregated values for the entire gig assignment. Individual task-level details can be found in the [`task_details`](https://docs.argyle.com/api-reference/gigs#object-task_details) object.\n"
+    },
+    "start_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the gig assignment started.\n"
+    },
+    "end_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the gig assignment ended.\n"
+    },
+    "all_datetimes": {
+      "type": "object",
+      "description": "Other timestamps related to the gig assignment.",
+      "properties": {
+        "request_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the gig assignment was created.\n"
+        },
+        "accept_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the gig assignment was accepted.\n"
+        },
+        "pickup_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when \"package\" (rider, food, or similar) was obtained.\n"
+        },
+        "dropoff_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when \"package\" (rider, food, or similar) was delivered.\n"
+        },
+        "cancel_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the gig assignment was cancelled.\n"
+        },
+        "shift_start": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the work shift started.\n"
+        },
+        "shift_end": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the work shift ended.\n"
+        },
+        "breaks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "break_start": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the break started.\n"
+              },
+              "break_end": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the break ended.\n"
+              }
+            }
+          }
+        }
+      }
+    },
+    "duration": {
+      "type": "integer",
+      "description": "Total time of the gig assignment (in seconds)."
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Timezone ([IANA](https://www.iana.org/time-zones)) where the gig assignment took place.\n"
+    },
+    "earning_type": {
+      "type": "string",
+      "enum": [
+        "offer",
+        "work",
+        "incentive",
+        "adjustment",
+        "other"
+      ],
+      "description": "The earnings category."
+    },
+    "start_location": {
+      "type": "object",
+      "description": "Starting location information for the gig assignment.",
+      "properties": {
+        "lat": {
+          "type": "string",
+          "description": "Latitude ([ISO 6709](https://en.wikipedia.org/wiki/ISO_6709)) where the gig assignment started.\nReturned as a decimal string with variable precision. ",
+          "format": "degrees",
+          "x-argyle-decimal-mode": "variable"
+        },
+        "lng": {
+          "type": "string",
+          "description": "Longitude ([ISO 6709](https://en.wikipedia.org/wiki/ISO_6709)) where the gig assignment started.\nReturned as a decimal string with variable precision. ",
+          "format": "degrees",
+          "x-argyle-decimal-mode": "variable"
+        },
+        "formatted_address": {
+          "type": "string",
+          "description": "Full address of where the gig assignment started."
+        }
+      }
+    },
+    "end_location": {
+      "type": "object",
+      "description": "Ending location information for the gig assignment.",
+      "properties": {
+        "lat": {
+          "type": "string",
+          "format": "degrees",
+          "description": "Latitude ([ISO 6709](https://en.wikipedia.org/wiki/ISO_6709)) where the gig assignment ended.\nReturned as a decimal string with variable precision. ",
+          "x-argyle-decimal-mode": "variable"
+        },
+        "lng": {
+          "type": "string",
+          "format": "degrees",
+          "description": "Longitude ([ISO 6709](https://en.wikipedia.org/wiki/ISO_6709)) where the gig assignment ended.\nReturned as a decimal string with variable precision. ",
+          "x-argyle-decimal-mode": "variable"
+        },
+        "formatted_address": {
+          "type": "string",
+          "description": "Full address of where the gig assignment ended."
+        }
+      }
+    },
+    "task_details": {
+      "type": "object",
+      "description": "Task-level details for the gig assignment.",
+      "properties": {
+        "events": {
+          "type": "array",
+          "description": "Geographical information and timestamps.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "order_id": {
+                "type": "string",
+                "description": "Argyle-added reference ID. Connects `events` to `orders`.\n\n**Note:**\nOnly available if the underlying gig platform provides a clear link between events and their associated orders (monetary charges).\n"
+              },
+              "sequence": {
+                "type": "string",
+                "description": "Counter starting at 1. The sequential ordering of each event, as represented by the gig platform.\n"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "request",
+                  "accept",
+                  "pickup",
+                  "dropoff",
+                  "other",
+                  "cancel"
+                ],
+                "description": "The type of event."
+              },
+              "name": {
+                "type": "string",
+                "description": "Name associated with the geographical location.\n\n**Note:**\nPrimarily available for delivery platforms, where name is the pickup establishment (i.e. restaurant name).\n"
+              },
+              "formatted_address": {
+                "type": "string",
+                "description": "Full address of the geographical location."
+              },
+              "lat": {
+                "type": "string",
+                "description": "Latitude ([ISO 6709](https://en.wikipedia.org/wiki/ISO_6709)) of the geographical location.\nReturned as a decimal string with variable precision. ",
+                "x-argyle-decimal-mode": "variable"
+              },
+              "lng": {
+                "type": "string",
+                "description": "Longitude ([ISO 6709](https://en.wikipedia.org/wiki/ISO_6709)) of the geographical location.\nReturned as a decimal string with variable precision. ",
+                "x-argyle-decimal-mode": "variable"
+              },
+              "datetime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) of the event.\n"
+              }
+            }
+          }
+        },
+        "orders": {
+          "type": "array",
+          "description": "Payment and earnings information.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "order_id": {
+                "type": "string",
+                "description": "Argyle-added reference ID. Connects `orders` to `events`.\n"
+              },
+              "sequence": {
+                "type": "string",
+                "description": "Counter starting at 1. The sequential ordering of each order, as represented by the gig platform.\n"
+              },
+              "income": {
+                "type": "object",
+                "description": "Payment and earnings information for the order.",
+                "properties": {
+                  "currency": {
+                    "type": "string",
+                    "description": "Currency code ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)).\n"
+                  },
+                  "total_charge": {
+                    "type": "string",
+                    "description": "Total amount charged to the customer. Returned as a decimal string with exactly two decimal places.",
+                    "x-argyle-decimal-places": 2,
+                    "x-argyle-decimal-mode": "fixed"
+                  },
+                  "customer_price": {
+                    "type": "string",
+                    "description": "Amount the customer paid for the order, not including `fees` and `tips`.\nReturned as a decimal string with exactly two decimal places. ",
+                    "x-argyle-decimal-places": 2,
+                    "x-argyle-decimal-mode": "fixed"
+                  },
+                  "fees": {
+                    "type": "string",
+                    "description": "Fees charged to the gig employee by the gig platform. Returned as a decimal string with exactly two decimal places.",
+                    "x-argyle-decimal-places": 2,
+                    "x-argyle-decimal-mode": "fixed"
+                  },
+                  "total": {
+                    "type": "string",
+                    "description": "Total earnings received by the gig employee ( `pay` + `tips` + `bonus` + `other` ).\nReturned as a decimal string with exactly two decimal places. ",
+                    "x-argyle-decimal-places": 2,
+                    "x-argyle-decimal-mode": "fixed"
+                  },
+                  "pay": {
+                    "type": "string",
+                    "description": "Earnings related to the assignment received by the gig employee. Returned as a decimal string with exactly two decimal places.",
+                    "x-argyle-decimal-places": 2,
+                    "x-argyle-decimal-mode": "fixed"
+                  },
+                  "tips": {
+                    "type": "string",
+                    "description": "Tips received by the gig employee. Returned as a decimal string with exactly two decimal places.",
+                    "x-argyle-decimal-places": 2,
+                    "x-argyle-decimal-mode": "fixed"
+                  },
+                  "bonus": {
+                    "type": "string",
+                    "description": "Bonus earnings received by the gig employee. Returned as a decimal string with exactly two decimal places.",
+                    "x-argyle-decimal-places": 2,
+                    "x-argyle-decimal-mode": "fixed"
+                  },
+                  "other": {
+                    "type": "string",
+                    "description": "Other payments made or received by the gig employee.\n\nCommon examples: refunds (tolls), taxes, partial cash payments, reimbursements, or miscellaneous payments categorized as \"other\".\n\nReturned as a decimal string with exactly two decimal places.\n",
+                    "x-argyle-decimal-places": 2,
+                    "x-argyle-decimal-mode": "fixed"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "distance": {
+      "type": "string",
+      "description": "Distance traveled during the gig assignment. Returned as a decimal string with exactly two decimal places.",
+      "x-argyle-decimal-places": 2,
+      "x-argyle-decimal-mode": "fixed"
+    },
+    "distance_unit": {
+      "type": "string",
+      "enum": [
+        "miles",
+        "km"
+      ],
+      "description": "Unit of the distance traveled."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional, non-categorized information.\n"
+    },
+    "circumstances": {
+      "type": "object",
+      "description": "Metadata specific to the gig platform, such as whether the assignment occurred during peak hours."
+    },
+    "income": {
+      "type": "object",
+      "description": "Payment and earnings information for the gig assignment.",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "description": "Currency code ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)).\n"
+        },
+        "total_charge": {
+          "type": "string",
+          "description": "Total amount charged to the customer. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "customer_price": {
+          "type": "string",
+          "description": "Amount the customer paid for the order, not including `fees` and `tips`.\n\n**Note:**\nOnly available if directly returned by the gig platform.\n\nReturned as a decimal string with exactly two decimal places.\n",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "fees": {
+          "type": "string",
+          "description": "Fees charged to the gig employee by the gig platform. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "total": {
+          "type": "string",
+          "description": "Total earnings received by the gig employee ( `pay` + `tips` + `bonus` + `other` ).\nReturned as a decimal string with exactly two decimal places. ",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "pay": {
+          "type": "string",
+          "description": "Earnings related to the assignment received by the gig employee. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "tips": {
+          "type": "string",
+          "description": "Tips received by the gig employee. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "bonus": {
+          "type": "string",
+          "description": "Bonus earnings received by the gig employee. Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "other": {
+          "type": "string",
+          "description": "Other payments made or received by the gig employee.\n\nCommon examples: refunds (tolls), taxes, partial cash payments, reimbursements, or miscellaneous payments categorized as \"other\".\n\n**Note:**\n  Additional details for other income are listed within metadata in the following format:\n\n  ```json\n  \"metadata\": {\n    \"income.other\": {\n      \"name\": \"Taxes: Withholding tax\",\n      \"value\": \"-15.32\"\n    }\n  }\n  ```\n\nReturned as a decimal string with exactly two decimal places.\n",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        }
+      }
+    },
+    "income_rates": {
+      "type": "object",
+      "description": "Amount earned by the gig employee per hour or per mile.\n\n**Note:**\nValues are not calculated, and are only returned if directly provided by the gig platform.\n",
+      "properties": {
+        "hour": {
+          "type": "string",
+          "description": "Earnings per hour. *Not calculated* Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        },
+        "mile": {
+          "type": "string",
+          "description": "Earnings per mile. *Not calculated* Returned as a decimal string with exactly two decimal places.",
+          "x-argyle-decimal-places": 2,
+          "x-argyle-decimal-mode": "fixed"
+        }
+      }
+    }
+  }
+}

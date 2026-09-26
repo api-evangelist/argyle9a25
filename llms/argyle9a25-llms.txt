@@ -1,0 +1,111 @@
+# Argyle Docs
+
+> Argyle documentation for integrating real-time income, employment, payroll document, and banking data into verification workflows. Use this index to find the right guide, Link page, API reference, integration guide, or OpenAPI specification.
+
+Important context:
+- Payroll VOIE uses connected payroll account data for income and employment verification.
+- Doc VOI uses uploaded payroll and identity documents, with OCR and authenticity support where available.
+- Banking VOI and VOA use bank-authenticated data for income and asset workflows.
+- Link is the user-facing account connection experience. Banking connection flows use session URLs with the banking SDK or an enabled hosted experience.
+- Use Sandbox for testing sample users and simulated flows before using Production.
+- Prefer the `.md` page links in these indexes for page content; use OpenAPI YAML for generated endpoint schemas.
+
+Common integration flows:
+- Payroll flow: create a user, launch Link with a user token or session, listen for account and data webhooks, then retrieve identities, paystubs, payroll documents, or reports.
+- Verification flow: order a verification, create a session for the user, monitor verification webhooks, then retrieve the verification result.
+- Banking flow: create a Connect URL, complete bank authentication, retrieve bank accounts, then generate banking reports.
+
+## Guides
+
+- [Guides](https://docs.argyle.com/guides.md): Choose how you want to build with Argyle.
+- [Overview llms.txt](https://docs.argyle.com/overview/llms.txt): Scoped index for product overview, data structure, security, and sandbox testing.
+- [Verifications llms.txt](https://docs.argyle.com/verifications/llms.txt): Scoped index for verification implementation, lifecycle, results, recovery, testing, and platform partners.
+- [Data APIs llms.txt](https://docs.argyle.com/data-apis/llms.txt): Scoped index for direct data access, delivery readiness, and ongoing refresh.
+- [Workflows llms.txt](https://docs.argyle.com/workflows/llms.txt): Scoped index for account connection, reconnection, and document processing workflows.
+- [How Argyle Works](https://docs.argyle.com/overview/how-argyle-works.md): Argyle helps consumers share income and employment data straight from the source.
+- [Data Sets](https://docs.argyle.com/overview/data-structure/data-sets.md): Payroll data and documents from connected accounts.
+- [Data Delivery](https://docs.argyle.com/overview/data-delivery.md): Know when payroll data is ready.
+- [Sandbox Testing](https://docs.argyle.com/overview/sandbox-testing.md): Explore the Sandbox environment.
+
+## Verticals
+
+- [Verticals llms.txt](https://docs.argyle.com/verticals/llms.txt): Scoped index for mortgage, tenant screening, government benefits, personal lending, background checks, gig and workforce, and custom workflows.
+- [Verticals](https://docs.argyle.com/verticals.md): Explore implementations for specific industries and programs.
+- [Mortgage](https://docs.argyle.com/verticals/mortgage.md): Implement payroll, banking, and Doc VOI across the mortgage lifecycle.
+- [Tenant Screening](https://docs.argyle.com/verticals/tenant-screening.md): Use payroll data, banking reports, and uploaded documents for tenant screening.
+- [Government Benefits](https://docs.argyle.com/verticals/government-benefits.md): Use payroll, banking, and applicant-certified data in government benefits workflows.
+- [Personal Lending](https://docs.argyle.com/verticals/personal-lending.md): Use payroll data, banking reports, and uploaded documents in personal lending workflows.
+- [Background Check](https://docs.argyle.com/verticals/background-check.md): Retrieve applicant-shared employment records for a background check.
+- [Gig and Workforce](https://docs.argyle.com/verticals/gig-and-workforce.md): Process gig, shift, vehicle, rating, and pay data from connected accounts.
+- [Custom Workflows](https://docs.argyle.com/verticals/custom-workflows.md): Choose the data you need, how users share it, and when your application can proceed.
+
+## Link
+
+- [Link llms.txt](https://docs.argyle.com/link/llms.txt): Scoped index for Link initialization, SDKs, hosted Link, user tokens, callbacks, tracking, errors, and accessibility.
+- [Overview](https://docs.argyle.com/link/overview.md): Link is where payroll connections are made.
+- [Overview](https://docs.argyle.com/link/initialization/overview.md): Choose how to initialize Argyle Link.
+- [Web SDK](https://docs.argyle.com/link/initialization/web.md): Embed Argyle Link in a browser with the Web SDK.
+- [Hosted Link](https://docs.argyle.com/link/initialization/hosted-link.md): Launch an Argyle verification session URL directly.
+
+## API
+
+- [API Guide llms.txt](https://docs.argyle.com/api-guide/llms.txt): Scoped index for authentication, environments, pagination, webhooks, Postman, AI tools, and API behavior.
+- [API Reference llms.txt](https://docs.argyle.com/api-reference/llms.txt): Scoped index for endpoint pages, resource objects, webhooks, reports, verifications, error catalogs, and split OpenAPI specs.
+- [Overview](https://docs.argyle.com/api-guide/overview.md): Learn how to use the Argyle API.
+- [Webhooks](https://docs.argyle.com/api-guide/webhooks.md): Receive backend notifications when verification, account, and resource state changes.
+- [AI Tools](https://docs.argyle.com/api-guide/ai-tools.md): Use Argyle's machine-readable docs and API resources with AI coding tools.
+- [API Reference](https://docs.argyle.com/api-reference/overview.md): Find the API endpoint you need.
+- [Create A User](https://docs.argyle.com/api-reference/users/create-a-user.md): Creates a new user object. Includes a new user token in the response.
+- [Accounts](https://docs.argyle.com/api-reference/accounts.md): Accounts are payroll connections made through Link.
+- [Paystubs](https://docs.argyle.com/api-reference/paystubs.md): The digital equivalent of a traditional paystub.
+
+## Verifications
+
+- [Verifications](https://docs.argyle.com/verifications/overview.md): Order payroll, banking, and Doc VOI reports through one lifecycle.
+- [Verifications Quickstart](https://docs.argyle.com/verifications/quickstart.md): Build your first verification workflow.
+- [Verification Statuses](https://docs.argyle.com/verifications/verification-statuses.md): Track verification status changes and retrieve completed report results.
+- [Order a verification](https://docs.argyle.com/api-reference/verifications/order-a-verification.md)
+- [Create a session](https://docs.argyle.com/api-reference/verifications/create-a-session.md): Create a connection session or send an invite.
+- [Doc VOI](https://docs.argyle.com/verifications/verification-types/document-voi.md): Order a mortgage income report from uploaded documents.
+
+## Partners
+
+- [Build with Argyle](https://docs.argyle.com/partners.md): Implement payroll, banking, and Doc VOI through the Partner API.
+- [Partners llms.txt](https://docs.argyle.com/partners/llms.txt): Scoped index for /partners/v2 guides, endpoints, webhooks, data sets, and receipts.
+- [Partner Implementations](https://docs.argyle.com/verifications/platform-partners.md): Use Verifications through `/partners/v2`.
+- [Partner Quickstart](https://docs.argyle.com/partners/quickstart.md): Build your first verification workflow.
+- [Partner API Reference](https://docs.argyle.com/partners/api-reference.md): Find partner endpoints, examples, and webhooks.
+
+## Banking
+
+- [Banking Overview Guide](https://docs.argyle.com/api-reference/banking-overview.md): Implementation guide for banking reports.
+- [Connect URL](https://docs.argyle.com/api-reference/connect-url.md): Create session links for bank authentications.
+- [Create A Connect Url](https://docs.argyle.com/api-reference/connect-url/create-a-connect-url.md): Creates a new Connect URL for the specified user.
+- [Banking Reports](https://docs.argyle.com/api-reference/banking-reports.md): Generate asset and income reports based on bank data.
+- [Financial Institutions](https://docs.argyle.com/api-reference/financial-institutions.md): Explore supported financial institutions for banking connections.
+- [Bank Accounts](https://docs.argyle.com/api-reference/bank-accounts.md): Bank account information.
+
+## Integrations
+
+- [Integrations llms.txt](https://docs.argyle.com/integrations/llms.txt): Scoped index for POS, LOS, GSE, OCR, and partner integration guides.
+- [3-in-1 Verification Suite](https://docs.argyle.com/integrations/pos-los/encompass/verifications.md): Verify income, employment, & assets within the Encompass® by ICE Mortgage Technology® platform.
+- [Encompass Setup Guide](https://docs.argyle.com/integrations/pos-los/encompass/setup-guide.md): Setting up manual and automated Argyle verification ordering within the Encompass® by ICE Mortgage Technology® platform.
+- [Day 1 Certainty® and AIM](https://docs.argyle.com/integrations/d1c-aim/verifications.md): Achieve Day 1 Certainty® and AIM eligibility through Argyle income and employment verifications.
+- [OCR and Authenticity](https://docs.argyle.com/integrations/ocr/ocrolus.md): OCR and Authenticity information for document uploads.
+- [nCino](https://docs.argyle.com/integrations/pos-los/ncino.md): Securely retrieve income, assets, and employment history with direct borrower connections in nCino.
+
+## Console
+
+- [Console llms.txt](https://docs.argyle.com/console/llms.txt): Scoped index for Console operations, flows, management, developers, webhooks, and integrations.
+- [Overview](https://docs.argyle.com/console/overview.md): Console is where you learn about, manage, and operate Argyle.
+- [Embedded Experiences](https://docs.argyle.com/console/flows/embedded-experiences.md): Configure the embedded Link experience for your website or application.
+- [Developers](https://docs.argyle.com/console/management/developers.md): Accessing API keys through Console.
+- [Webhooks](https://docs.argyle.com/console/management/webhooks.md): Subscribe to event notifications through Console.
+
+## Specs
+
+- [Argyle API OpenAPI specification](https://docs.argyle.com/openAPI/argyle-all.yaml): Consolidated public OpenAPI specification for Argyle API endpoints and schemas.
+
+## Optional
+
+- [Full documentation context](https://docs.argyle.com/llms-full.txt): Full documentation context. Use when the root and scoped llms.txt files are not enough.
