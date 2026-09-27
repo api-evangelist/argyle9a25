@@ -93,14 +93,566 @@ apis:
   humanURL: https://docs.argyle.com/api-reference/overview
   baseURL: https://api.argyle.com/v2
   aid: argyle9a25:argyle-api
-- aid: argyle9a25:argyle-api-openapi-api
-  name: Argyle API Openapi API
-  description: 'Argyle API Openapi API: 89 operations.'
-  humanURL: https://docs.argyle.com/llms.txt
-  baseURL: https://api-sandbox.argyle.com/v2
+- aid: argyle9a25:argyle9a25-accounts-api
+  name: Argyle9a25 Accounts API
+  description: The Accounts API from Argyle9a25 — 3 operation(s) for accounts.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Accounts
   properties:
   - type: OpenAPI
-    url: openapi/_original/argyle9a25-openapi-openapi.yml
+    url: openapi/argyle9a25-accounts-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-deposit-destinations-api
+  name: Argyle9a25 Deposit Destinations API
+  description: The Deposit Destinations API from Argyle9a25 — 2 operation(s) for deposit destinations.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Deposit Destinations
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-deposit-destinations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-employer-search-api
+  name: Argyle9a25 Employer Search API
+  description: The Employer Search API from Argyle9a25 — 1 operation(s) for employer search.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Employer Search
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-employer-search-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-employments-api
+  name: Argyle9a25 Employments API
+  description: The Employments API from Argyle9a25 — 1 operation(s) for employments.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Employments
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-employments-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-gigs-api
+  name: Argyle9a25 Gigs API
+  description: The Gigs API from Argyle9a25 — 2 operation(s) for gigs.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Gigs
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-gigs-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-identities-api
+  name: Argyle9a25 Identities API
+  description: The Identities API from Argyle9a25 — 2 operation(s) for identities.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Identities
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-identities-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-invites-api
+  name: Argyle9a25 Invites API
+  description: The Invites API from Argyle9a25 — 3 operation(s) for invites.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Invites
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-invites-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-item-filters-api
+  name: Argyle9a25 Item Filters API
+  description: The Item Filters API from Argyle9a25 — 2 operation(s) for item filters.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Item Filters
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-item-filters-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-item-migrations-api
+  name: Argyle9a25 Item Migrations API
+  description: The Item Migrations API from Argyle9a25 — 1 operation(s) for item migrations.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Item Migrations
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-item-migrations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-items-api
+  name: Argyle9a25 Items API
+  description: The Items API from Argyle9a25 — 2 operation(s) for items.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Items
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-items-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-open-banking-api
+  name: Argyle9a25 Open Banking API
+  description: The Open Banking API from Argyle9a25 — 6 operation(s) for open banking.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Open Banking
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-open-banking-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-partners-api
+  name: Argyle9a25 Partners API
+  description: The Partners API from Argyle9a25 — 15 operation(s) for partners.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Partners
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-partners-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-payroll-documents-api
+  name: Argyle9a25 Payroll Documents API
+  description: The Payroll Documents API from Argyle9a25 — 2 operation(s) for payroll documents.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Payroll Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-payroll-documents-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-paystubs-api
+  name: Argyle9a25 Paystubs API
+  description: The Paystubs API from Argyle9a25 — 2 operation(s) for paystubs.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Paystubs
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-paystubs-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-ratings-api
+  name: Argyle9a25 Ratings API
+  description: The Ratings API from Argyle9a25 — 2 operation(s) for ratings.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Ratings
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-ratings-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-receipts-api
+  name: Argyle9a25 Receipts API
+  description: The Receipts API from Argyle9a25 — 1 operation(s) for receipts.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Receipts
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-receipts-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-reports-api
+  name: Argyle9a25 Reports API
+  description: The Reports API from Argyle9a25 — 3 operation(s) for reports.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-reports-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-sessions-api
+  name: Argyle9a25 Sessions API
+  description: The Sessions API from Argyle9a25 — 1 operation(s) for sessions.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-sessions-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-shifts-api
+  name: Argyle9a25 Shifts API
+  description: The Shifts API from Argyle9a25 — 2 operation(s) for shifts.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Shifts
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-shifts-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-user-forms-api
+  name: Argyle9a25 User Forms API
+  description: The User Forms API from Argyle9a25 — 2 operation(s) for user forms.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - User Forms
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-user-forms-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-user-tokens-api
+  name: Argyle9a25 User Tokens API
+  description: The User Tokens API from Argyle9a25 — 1 operation(s) for user tokens.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - User Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-user-tokens-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-user-uploads-api
+  name: Argyle9a25 User Uploads API
+  description: The User Uploads API from Argyle9a25 — 2 operation(s) for user uploads.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - User Uploads
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-user-uploads-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-users-api
+  name: Argyle9a25 Users API
+  description: The Users API from Argyle9a25 — 2 operation(s) for users.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-users-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-vehicles-api
+  name: Argyle9a25 Vehicles API
+  description: The Vehicles API from Argyle9a25 — 2 operation(s) for vehicles.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Vehicles
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-vehicles-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-verifications-api
+  name: Argyle9a25 Verifications API
+  description: The Verifications API from Argyle9a25 — 4 operation(s) for verifications.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Verifications
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-verifications-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-payroll-document-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-gig-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-partner-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/argyle9a25-account-schema.json
+- aid: argyle9a25:argyle9a25-webhook-management-api
+  name: Argyle9a25 Webhook management API
+  description: The Webhook management API from Argyle9a25 — 4 operation(s) for webhook management.
+  humanURL: https://docs.argyle.com/api-reference/overview
+  baseURL: https://api.argyle.com/v2
+  tags:
+  - Webhook management
+  properties:
+  - type: OpenAPI
+    url: openapi/argyle9a25-webhook-management-api-openapi.yml
   - type: JSONSchema
     url: json-schema/argyle9a25-payroll-document-verifications-partners-schema.json
   - type: JSONSchema
@@ -129,3 +681,10 @@ x-enrichment:
   artifacts_added: 18
   pass: modular-v1
   engine: identity=local,contract=local,surfaces=local,docs=local
+x-a2a:
+  verified: true
+  probed: '2026-09-26'
+  url: "https://docs.argyle.com/.well-known/agent-card.json"
+  grade: "conformant"
+  protocol_version: "0.3"
+  control: 404

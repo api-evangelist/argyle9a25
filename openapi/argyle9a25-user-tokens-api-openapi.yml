@@ -1,0 +1,62 @@
+openapi: 3.2.0
+info:
+  title: Argyle User Tokens API
+  description: Argyle OpenAPI spec
+  version: 1.0.111
+servers:
+- url: https://api-sandbox.argyle.com/v2
+  description: Sandbox
+- url: https://api.argyle.com/v2
+  description: Production
+security:
+- basicAuth: []
+tags:
+- name: User Tokens
+paths:
+  /user-tokens:
+    post:
+      summary: Create a user token
+      description: 'Creates a new user token from the `id` of an existing user for direct embedded Link initializations.
+
+
+        Creating a new user will also return a user token in the response.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserTokenRequest'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUserTokenResponse'
+              example:
+                user_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIxNDRhMTRkNJ04YzEzLTQzZGYtOTI4Ni01OWY4NjFkOWEyMDIiLCJleHAiOjE2NzgzOTUwMTEsImZpZCI6ImMyNzFhODRlLWM2MjQtNDNkYS05OGMyLTQzODZkNTk1OWQ4YiIsImlhdCI6MTY3ODM5MTQxMSwiaXNzIjoiYXJneWxlLWNvcmUtYXV0aC1kZXYiLCJqdGkiOiI4ZTk1MTBmNC00YzVlLTRlOTAtOTIyNy1kNjg2MTk3MmMxOTAiLCJzdWIiOiIwMTg2YzRiOC04ZmExLTYyYjMtNDlkZi05NGIzZTE4Y2E4YTciLCJ1c2VyX2lkIjoiMDE4NmM0YjgtOGZhMS02MmIzLTQ5ZGYtOTRiM2UxOGNhOGE3In0.oLrxtzfNHG1RZ85Z4q7VUiv2-kufXmMINJFHeRIjvWo
+      operationId: postUserTokens
+      tags:
+      - User Tokens
+components:
+  schemas:
+    CreateUserTokenRequest:
+      type: object
+      properties:
+        user:
+          type: string
+          format: uuid
+          description: ID of the user object.
+      required:
+      - user
+    CreateUserTokenResponse:
+      type: object
+      properties:
+        user_token:
+          type: string
+          description: The generated user token.
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Username = api_key_id, Password = api_key_secret

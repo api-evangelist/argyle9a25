@@ -1,0 +1,865 @@
+openapi: 3.2.0
+info:
+  title: Argyle Webhook management API
+  description: Argyle OpenAPI spec
+  version: 1.0.111
+servers:
+- url: https://api-sandbox.argyle.com/v2
+  description: Sandbox
+- url: https://api.argyle.com/v2
+  description: Production
+security:
+- basicAuth: []
+tags:
+- name: Webhook management
+paths:
+  /webhooks:
+    post:
+      summary: Create a webhook
+      description: Creates a webhook subscription.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsolidatedWebhookSubscriptionRequest'
+            examples:
+              basic:
+                summary: Basic subscription
+                value:
+                  events:
+                  - accounts.added
+                  name: name-for-the-webhook-subscription
+                  url: https://your-webhook-backend.com
+                  secret: optional-secret
+              include_resource:
+                summary: Account resource included
+                value:
+                  events:
+                  - accounts.added
+                  name: name-for-the-webhook-subscription
+                  url: https://your-webhook-backend.com
+                  secret: optional-secret
+                  config:
+                    include_resource: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsolidatedWebhookSubscriptionResponse'
+              example:
+                id: 205c027e-8a4d-4248-b395-d4f345dfd49f
+                name: name-for-the-webhook-subscription
+                events:
+                - verifications.updated
+                config: {}
+                secret: optional-secret
+                url: https://your-webhook-backend.com
+                created_at: '2026-07-29T19:33:16.120Z'
+                updated_at: '2026-07-29T19:33:16.123Z'
+                last_sent_at: null
+      operationId: createWebhook
+      tags:
+      - Webhook management
+      callbacks:
+        webhookDelivery:
+          '{$request.body#/url}':
+            post:
+              operationId: deliverWebhookEvent
+              summary: Webhook event delivery
+              description: Argyle sends subscribed webhook event payloads to the URL provided in the subscription request.
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/ConsolidatedWebhookEventPayload'
+                    examples:
+                      accounts_added:
+                        summary: accounts.added
+                        value:
+                          event: accounts.added
+                          name: name-for-the-webhook-subscription
+                          data:
+                            account: 0187c66e-e7e5-811c-b006-2232f00f426a
+                            user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                            resource:
+                              id: 0187c66e-e7e5-811c-b006-2232f00f426a
+                              user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                              employers:
+                              - Whole Goods
+                              item: item_123456789
+                              source: thepayrollcompany
+                              created_at: '2023-01-30T12:53:22.561Z'
+                              updated_at: '2023-01-30T12:53:23.123Z'
+                              scanned_at: '1970-01-01T00:00:00Z'
+                              connection:
+                                status: connecting
+                                error_code: null
+                                error_message: null
+                                updated_at: '2023-01-30T12:53:23.123Z'
+                              direct_deposit_switch:
+                                status: idle
+                                error_code: null
+                                error_message: null
+                                updated_at: '2023-01-30T12:53:23.123Z'
+                              availability:
+                                shifts: null
+                                gigs: null
+                                paystubs: null
+                                payroll_documents: null
+                                identities: null
+                                ratings: null
+                                vehicles: null
+                                deposit_destinations: null
+                                user_forms: null
+                                user_uploads: null
+                              ongoing_refresh:
+                                status: idle
+                      accounts_updated:
+                        summary: accounts.updated
+                        value:
+                          event: accounts.updated
+                          name: name-for-the-webhook-subscription
+                          data:
+                            account: 0187c66e-e7e5-811c-b006-2232f00f426a
+                            user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                      accounts_removed:
+                        summary: accounts.removed
+                        value:
+                          event: accounts.removed
+                          name: name-for-the-webhook-subscription
+                          data:
+                            account: 0187c66e-e7e5-811c-b006-2232f00f426a
+                            user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                      accounts_connected:
+                        summary: accounts.connected
+                        value:
+                          event: accounts.connected
+                          name: name-for-the-webhook-subscription
+                          data:
+                            account: 0187c66e-e7e5-811c-b006-2232f00f426a
+                            user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                      accounts_failed:
+                        summary: accounts.failed
+                        value:
+                          event: accounts.failed
+                          name: name-for-the-webhook-subscription
+                          data:
+                            account: 0187c66e-e7e5-811c-b006-2232f00f426a
+                            user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                            error_code: invalid_mfa
+                            error_message: This user did not provide the correct multi-factor authentication response.
+                      gigs_added:
+                        summary: gigs.added
+                        value:
+                          event: gigs.added
+                          name: name-for-the-webhook-subscription
+                          data:
+                            account: 0187c66e-e7e5-811c-b006-2232f00f426a
+                            user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                            available_from: '2016-04-16T05:32:41Z'
+                            available_to: '2023-03-03T00:00:00Z'
+                            available_count: 2385
+                            added_count: 6
+                            added_from: '2023-03-02T00:00:00Z'
+                            added_to: '2023-03-03T00:00:00Z'
+                      gigs_updated:
+                        summary: gigs.updated
+                        value:
+                          event: gigs.updated
+                          name: name-for-the-webhook-subscription
+                          data:
+                            account: 0187c66e-e7e5-811c-b006-2232f00f426a
+                            user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                            available_from: '2016-04-16T05:32:41Z'
+                            available_to: '2023-03-03T00:00:00Z'
+                            available_count: 2385
+                            updated_count: 2
+                            updated_gigs:
+                            - 0187b43a-35fa-56e2-1a95-f7e4232a4b3a
+                            - 0187dbfa-6f5e-a33a-af26-7e12ff408fea
+                            updated_from: '2023-03-02T00:00:00Z'
+                            updated_to: '2023-03-03T00:00:00Z'
+                      gigs_removed:
+                        summary: gigs.removed
+                        value:
+                          event: gigs.removed
+                          name: name-for-the-webhook-subscription
+                          data:
+                            account: 0187c66e-e7e5-811c-b006-2232f00f426a
+                            user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                            available_from: '2016-04-16T05:32:41Z'
+                            available_to: '2023-03-02T00:00:00Z'
+                            available_count: 2383
+                            removed_count: 2
+                            removed_gigs:
+                            - 0187b43a-35fa-56e2-1a95-f7e4232a4b3a
+                            - 0187dbfa-6f5e-a33a-af26-7e12ff408fea
+                            removed_from: '2023-03-02T00:00:00Z'
+                            removed_to: '2023-03-03T00:00:00Z'
+                      gigs_partially_synced:
+                        summary: gigs.partially_synced
+                        value:
+                          event: gigs.partially_synced
+                          name: name-for-the-webhook-subscription
+                          data:
+                            account: 0187c66e-e7e5-811c-b006-2232f00f426a
+                            user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                            available_from: '2023-01-02T00:00:00Z'
+                            available_to: '2023-03-03T00:00:00Z'
+                            available_count: 132
+                            days_synced: 60
+                      gigs_fully_synced:
+                        summary: gigs.fully_synced
+                        value:
+                          event: gigs.fully_synced
+                          name: name-for-the-webhook-subscription
+                          data:
+                            account: 0187c66e-e7e5-811c-b006-2232f00f426a
+                            user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                            available_from: '2016-04-16T05:32:41Z'
+                            available_to: '2023-03-02T00:00:00Z'
+                            available_count: 2379
+                      verifications_updated:
+                        summary: verifications.updated
+                        value:
+                          id: 205c027e-8a4d-4248-b395-d4f345dfd49f
+                          name: name-for-the-webhook-subscription
+                          events:
+                          - verifications.updated
+                          config: {}
+                          secret: optional-secret
+                          url: https://your-webhook-backend.com
+                          created_at: '2026-07-29T19:33:16.120Z'
+                          updated_at: '2026-07-29T19:33:16.123Z'
+                          last_sent_at: null
+                      verifications_creation_failed:
+                        summary: verifications.creation_failed
+                        value:
+                          event: verifications.creation_failed
+                          name: name-for-the-webhook-subscription
+                          data:
+                            user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                            context:
+                              user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                              attempted_at: '2023-03-09T16:22:06.081Z'
+                              channel: encompass
+                              data_source: banking
+                              report_type: voa
+                              loan:
+                                number: '1234'
+                                borrower_id: ABC789
+                                application_id: '2121313'
+                                officer_email: john.doe@mortgage.com
+                              billing:
+                                cost_center: '5'
+                      verifications_connection_added:
+                        summary: verifications.connection_added
+                        value:
+                          event: verifications.connection_added
+                          name: name-for-the-webhook-subscription
+                          data:
+                            user: 018051aa-f7a9-a0db-2f38-6cfa325e9d69
+                            verification: 43a2c6c3-1e63-91e5-88e3-f9ab2dcc489b
+                            connection:
+                              id: '102168'
+                              data_source: banking
+                              connected_at: '2026-09-08T16:22:06.081Z'
+              responses:
+                '200':
+                  description: Acknowledge receipt of the webhook. Any 2xx status code is treated as success.
+    get:
+      operationId: listWebhooks
+      summary: List all webhooks
+      description: Returns a paginated list of webhook subscriptions.
+      tags:
+      - Webhook management
+      parameters:
+      - $ref: '#/components/parameters/FromCreatedAt'
+      - $ref: '#/components/parameters/ToCreatedAt'
+      - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/Limit_webhooks'
+      - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookListResponse'
+              example:
+                next: https://api-sandbox.argyle.com/v2/webhooks?cursor=ZXhhbXBsZV9jdXJzb3I
+                previous: null
+                results:
+                - id: 205c027e-8a4d-4248-b395-d4f345dfd49f
+                  name: name-for-the-webhook-subscription
+                  events:
+                  - verifications.updated
+                  config: {}
+                  secret: optional-secret
+                  url: https://your-webhook-backend.com
+                  created_at: '2026-07-29T19:33:16.120Z'
+                  updated_at: '2026-07-29T19:33:16.123Z'
+                  last_sent_at: null
+                - id: b91661b8-2633-49f5-98e5-01d82f04aa30
+                  name: different-name-for-this-webhook-subscription
+                  events:
+                  - identities.added
+                  - identities.updated
+                  config: {}
+                  secret: optional-secret
+                  url: https://your-webhook-backend.com
+                  created_at: '2026-07-29T19:33:16.120Z'
+                  updated_at: '2026-07-29T19:33:16.123Z'
+                  last_sent_at: null
+  /webhooks/{id}:
+    get:
+      operationId: retrieveWebhook
+      summary: Retrieve a webhook
+      description: Retrieves a webhook subscription.
+      tags:
+      - Webhook management
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ID of the webhook subscription.
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+              example:
+                id: 205c027e-8a4d-4248-b395-d4f345dfd49f
+                name: name-for-the-webhook-subscription
+                events:
+                - verifications.updated
+                config: {}
+                secret: optional-secret
+                url: https://your-webhook-backend.com
+                created_at: '2026-07-29T19:33:16.120Z'
+                updated_at: '2026-07-29T19:33:16.123Z'
+                last_sent_at: null
+    delete:
+      operationId: deleteWebhook
+      summary: Delete a webhook
+      description: Deletes a webhook subscription.
+      tags:
+      - Webhook management
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ID of the webhook subscription.
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: '204 status code: No content.'
+  /partners/v2/webhooks:
+    servers:
+    - url: https://api-sandbox.argyle.com
+      description: Sandbox
+    - url: https://api.argyle.com
+      description: Production
+    post:
+      summary: Create a webhook
+      description: Creates a webhook subscription.
+      tags:
+      - Webhook management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookCreateRequest'
+            example:
+              events:
+              - verifications.updated
+              name: name-for-the-webhook-subscription
+              url: https://your-webhook-backend.com
+              secret: optional-secret
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsolidatedWebhookSubscriptionResponse'
+              example:
+                id: 205c027e-8a4d-4248-b395-d4f345dfd49f
+                name: name-for-the-webhook-subscription
+                events:
+                - verifications.updated
+                config: {}
+                secret: optional-secret
+                url: https://your-webhook-backend.com
+                created_at: '2026-07-29T19:33:16.120Z'
+                updated_at: '2026-07-29T19:33:16.123Z'
+                last_sent_at: null
+      operationId: createPartnerWebhook
+    get:
+      operationId: listPartnerWebhooks
+      summary: List all webhooks
+      description: Returns a paginated list of webhook subscriptions.
+      tags:
+      - Webhook management
+      parameters:
+      - $ref: '#/components/parameters/FromCreatedAt'
+      - $ref: '#/components/parameters/ToCreatedAt'
+      - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/Limit_webhooks'
+      - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookListResponse'
+              example:
+                next: https://api-sandbox.argyle.com/partners/v2/webhooks?cursor=ZXhhbXBsZV9jdXJzb3I
+                previous: null
+                results:
+                - id: 205c027e-8a4d-4248-b395-d4f345dfd49f
+                  name: name-for-the-webhook-subscription
+                  events:
+                  - verifications.updated
+                  config: {}
+                  secret: optional-secret
+                  url: https://your-webhook-backend.com
+                  created_at: '2026-07-29T19:33:16.120Z'
+                  updated_at: '2026-07-29T19:33:16.123Z'
+                  last_sent_at: null
+                - id: b91661b8-2633-49f5-98e5-01d82f04aa30
+                  name: different-name-for-this-webhook-subscription
+                  events:
+                  - identities.added
+                  - identities.updated
+                  config: {}
+                  secret: optional-secret
+                  url: https://your-webhook-backend.com
+                  created_at: '2026-07-29T19:33:16.120Z'
+                  updated_at: '2026-07-29T19:33:16.123Z'
+                  last_sent_at: null
+  /partners/v2/webhooks/{id}:
+    servers:
+    - url: https://api-sandbox.argyle.com
+      description: Sandbox
+    - url: https://api.argyle.com
+      description: Production
+    get:
+      operationId: retrievePartnerWebhook
+      summary: Retrieve a webhook
+      description: Retrieves a webhook subscription.
+      tags:
+      - Webhook management
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ID of the webhook subscription.
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+              example:
+                id: 205c027e-8a4d-4248-b395-d4f345dfd49f
+                name: name-for-the-webhook-subscription
+                events:
+                - verifications.updated
+                config: {}
+                secret: optional-secret
+                url: https://your-webhook-backend.com
+                created_at: '2026-07-29T19:33:16.120Z'
+                updated_at: '2026-07-29T19:33:16.123Z'
+                last_sent_at: null
+    delete:
+      operationId: deletePartnerWebhook
+      summary: Delete a webhook
+      description: Deletes a webhook subscription.
+      tags:
+      - Webhook management
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ID of the webhook subscription.
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: '204 status code: No content.'
+components:
+  parameters:
+    Cursor:
+      in: query
+      name: cursor
+      description: The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.
+      schema:
+        type: string
+    FromCreatedAt:
+      in: query
+      name: from_created_at
+      description: Filter for webhooks created on or after this timestamp.
+      schema:
+        type: string
+        format: date-time
+    Limit_webhooks:
+      in: query
+      name: limit
+      description: 'Number of webhook subscriptions returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.'
+      schema:
+        type: integer
+        default: 10
+        maximum: 200
+    ToCreatedAt:
+      in: query
+      name: to_created_at
+      description: Filter for webhooks created on or before this timestamp.
+      schema:
+        type: string
+        format: date-time
+    Ordering:
+      in: query
+      name: ordering
+      description: Use `id` to order results by webhook ID. Use `created_at` to order results by when the webhooks were created.
+      schema:
+        type: string
+        enum:
+        - id
+        - created_at
+  schemas:
+    WebhookCreateRequest:
+      type: object
+      properties:
+        events:
+          type: array
+          description: Webhook events to include in the webhook subscription.
+          items:
+            type: string
+        name:
+          type: string
+          description: Your name for the webhook subscription.
+        url:
+          type: string
+          format: uri
+          description: Where you want to receive webhook delivery. This can be either a backend URL that you manage, or a URL provided by a webhook management service. Argyle handles URL encoding for webhook URLs. Send the URL in its normal, unencoded form.
+        secret:
+          type: string
+          description: Optional secret used to [verify webhooks](/api-guide/webhooks#verifying-webhooks).
+        config:
+          type: object
+          description: Optional event-specific configuration for the webhook subscription. (*Only applicable to certain webhooks*)
+          additionalProperties: true
+      required:
+      - events
+      - name
+      - url
+      example:
+        events:
+        - verifications.updated
+        name: name-for-the-webhook-subscription
+        url: https://your-webhook-backend.com
+        secret: optional-secret
+    ConsolidatedWebhookSubscriptionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: ID of the webhook subscription.
+        name:
+          type: string
+          description: Name of the webhook subscription.
+        events:
+          type: array
+          description: Webhook events included in the webhook subscription.
+          items:
+            type: string
+        config:
+          type: object
+          description: Event-specific configuration for the webhook subscription.
+          additionalProperties: true
+        secret:
+          type:
+          - string
+          - 'null'
+          description: Secret used to verify webhooks, if provided.
+        url:
+          type: string
+          format: uri
+          description: URL where webhook deliveries are sent.
+        created_at:
+          type: string
+          format: date-time
+          description: Time when the webhook subscription was created.
+        updated_at:
+          type: string
+          format: date-time
+          description: Time when the webhook subscription was last updated.
+        last_sent_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last time Argyle sent the webhook. A null value means the webhook has not been sent.
+      example:
+        id: 205c027e-8a4d-4248-b395-d4f345dfd49f
+        name: name-for-the-webhook-subscription
+        events:
+        - verifications.updated
+        config: {}
+        secret: optional-secret
+        url: https://your-webhook-backend.com
+        created_at: '2026-07-29T19:33:16.120Z'
+        updated_at: '2026-07-29T19:33:16.123Z'
+        last_sent_at: null
+    ConsolidatedWebhookEventPayload:
+      type: object
+      description: Webhook event payload. Use `event` to determine the event-specific shape of `data`.
+      properties:
+        event:
+          type: string
+          description: Webhook event name.
+          enum:
+          - users.fully_synced
+          - accounts.added
+          - accounts.updated
+          - accounts.removed
+          - accounts.connected
+          - accounts.failed
+          - items.updated
+          - items.removed
+          - identities.added
+          - identities.updated
+          - paystubs.added
+          - paystubs.updated
+          - paystubs.partially_synced
+          - paystubs.fully_synced
+          - payroll_documents.added
+          - payroll_documents.updated
+          - payroll_documents.removed
+          - payroll_documents.ocr_completed
+          - payroll_documents.ocr_failed
+          - deposit_destinations.added
+          - deposit_destinations.updated
+          - deposit_destinations.removed
+          - direct_deposit_switches.completed
+          - direct_deposit_switches.failed
+          - shifts.added
+          - shifts.updated
+          - shifts.removed
+          - shifts.partially_synced
+          - shifts.fully_synced
+          - gigs.added
+          - gigs.updated
+          - gigs.removed
+          - gigs.partially_synced
+          - gigs.fully_synced
+          - vehicles.added
+          - vehicles.updated
+          - vehicles.removed
+          - ratings.added
+          - ratings.updated
+          - reports.ready
+          - reports.generated
+          - user_uploads.added
+          - user_uploads.removed
+          - user_uploads.ocr_completed
+          - user_uploads.ocr_failed
+          - user_uploads.ocr_authenticity
+          - user_forms.removed
+          - user_forms.submitted
+          - verifications.updated
+          - verifications.creation_failed
+          - verifications.connection_added
+        name:
+          type: string
+          description: Webhook subscription name.
+        data:
+          type: object
+          description: Event-specific payload object.
+          additionalProperties: true
+      required:
+      - event
+      - name
+      - data
+    WebhookListResponse:
+      type: object
+      properties:
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: URL for the next page of results, if available.
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: URL for the previous page of results, if available.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Webhook'
+    ConsolidatedWebhookSubscriptionRequest:
+      type: object
+      properties:
+        events:
+          type: array
+          description: Webhook events to include in the webhook subscription.
+          items:
+            type: string
+            enum:
+            - users.fully_synced
+            - accounts.added
+            - accounts.updated
+            - accounts.removed
+            - accounts.connected
+            - accounts.failed
+            - items.updated
+            - items.removed
+            - identities.added
+            - identities.updated
+            - paystubs.added
+            - paystubs.updated
+            - paystubs.partially_synced
+            - paystubs.fully_synced
+            - payroll_documents.added
+            - payroll_documents.updated
+            - payroll_documents.removed
+            - payroll_documents.ocr_completed
+            - payroll_documents.ocr_failed
+            - deposit_destinations.added
+            - deposit_destinations.updated
+            - deposit_destinations.removed
+            - direct_deposit_switches.completed
+            - direct_deposit_switches.failed
+            - shifts.added
+            - shifts.updated
+            - shifts.removed
+            - shifts.partially_synced
+            - shifts.fully_synced
+            - gigs.added
+            - gigs.updated
+            - gigs.removed
+            - gigs.partially_synced
+            - gigs.fully_synced
+            - vehicles.added
+            - vehicles.updated
+            - vehicles.removed
+            - ratings.added
+            - ratings.updated
+            - reports.ready
+            - reports.generated
+            - user_uploads.added
+            - user_uploads.removed
+            - user_uploads.ocr_completed
+            - user_uploads.ocr_failed
+            - user_uploads.ocr_authenticity
+            - user_forms.removed
+            - user_forms.submitted
+            - verifications.updated
+            - verifications.creation_failed
+            - verifications.connection_added
+        name:
+          type: string
+          description: Name for the webhook subscription.
+        url:
+          type: string
+          description: Where you want to receive webhook delivery. This can be either a backend URL that you manage, or a URL provided by a webhook management service. Argyle handles URL encoding for webhook URLs. Send the URL in its normal, unencoded form.
+        secret:
+          type:
+          - string
+          - 'null'
+          description: Optional secret used to verify webhooks.
+        config:
+          type: object
+          description: Optional event-specific configuration for the webhook subscription. (*Only applicable to certain webhooks*)
+          additionalProperties: true
+      required:
+      - events
+      - name
+      - url
+      example:
+        events:
+        - accounts.added
+        name: name-for-the-webhook-subscription
+        url: https://your-webhook-backend.com
+        secret: optional-secret
+    Webhook:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: ID of the webhook subscription.
+        name:
+          type: string
+          description: Name of the webhook subscription.
+        events:
+          type: array
+          description: Webhook events included in the webhook subscription.
+          items:
+            type: string
+        config:
+          type: object
+          description: Event-specific configuration for the webhook subscription.
+          additionalProperties: true
+        secret:
+          type:
+          - string
+          - 'null'
+          description: Secret used to verify webhooks, if provided.
+        url:
+          type: string
+          format: uri
+          description: URL where webhook deliveries are sent.
+        created_at:
+          type: string
+          format: date-time
+          description: Time when the webhook subscription was created.
+        updated_at:
+          type: string
+          format: date-time
+          description: Time when the webhook subscription was last updated.
+        last_sent_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last time Argyle sent the webhook. A null value means the webhook has not been sent.
+      example:
+        id: 205c027e-8a4d-4248-b395-d4f345dfd49f
+        name: name-for-the-webhook-subscription
+        events:
+        - verifications.updated
+        config: {}
+        secret: optional-secret
+        url: https://your-webhook-backend.com
+        created_at: '2026-07-29T19:33:16.120Z'
+        updated_at: '2026-07-29T19:33:16.123Z'
+        last_sent_at: null
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Username = api_key_id, Password = api_key_secret
