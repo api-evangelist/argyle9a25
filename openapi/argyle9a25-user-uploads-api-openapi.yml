@@ -117,67 +117,43 @@ paths:
       tags:
       - User Uploads
 components:
-  parameters:
-    DocumentType:
-      name: document_type
-      in: query
-      description: Filter by `document_type`.
-      schema:
-        type: string
-        format: uuid
-    AccountId:
-      name: account
-      in: query
-      description: Filter by account ID.
-      schema:
-        type: string
-        format: uuid
-    Limit:
-      name: limit
-      in: query
-      description: 'Number of user upload objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.
-
-        '
-      schema:
-        type: integer
-    UserId:
-      name: user
-      in: query
-      description: Filter by user ID.
-      schema:
-        type: string
-        format: uuid
-  responses:
-    UserUploadListResponse:
-      description: A paginated list of user upload objects.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              next:
-                type:
-                - string
-                - 'null'
-                format: uri
-                description: URL for the next page of results, if available.
-              previous:
-                type:
-                - string
-                - 'null'
-                format: uri
-                description: URL for the previous page of results, if available.
-              results:
-                type: array
-                items:
-                  $ref: '#/components/schemas/UserUpload'
-    UserUploadResponse:
-      description: A user upload object.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserUpload'
   schemas:
+    OcrDocument:
+      type: object
+      description: Contains OCR and authenticity results for one document detected within an uploaded file.
+      properties:
+        ocr_data:
+          type: object
+          description: 'Contains [Ocrolus OCR](/integrations/ocr/ocrolus#api) data for the detected document.
+
+
+            Available for paystubs, W-2s, and 1099s when Ocrolus is enabled.
+
+            '
+        ocr_authenticity:
+          type: object
+          description: 'Contains [Ocrolus authenticity](/integrations/ocr/ocrolus#api) data for the detected document.
+
+
+            Includes individual instances of tampering or other authenticity-related edits detected in the document.
+
+
+            Available for paystubs, W-2s, and 1099s when Ocrolus is enabled.
+
+            '
+        ocr_authenticity_score:
+          type:
+          - integer
+          - 'null'
+          description: '[Ocrolus authenticity score](/integrations/ocr/ocrolus#authenticity-scores) for the detected document.
+
+
+            Single score that captures the likelihood the detected document is authentic, as determined by Ocrolus.
+
+
+            Available for paystubs, W-2s, and 1099s when Ocrolus is enabled.
+
+            '
     UserUpload:
       type: object
       example:
@@ -355,42 +331,66 @@ components:
           type: string
           format: date-time
           description: Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the user upload object was last updated.
-    OcrDocument:
-      type: object
-      description: Contains OCR and authenticity results for one document detected within an uploaded file.
-      properties:
-        ocr_data:
-          type: object
-          description: 'Contains [Ocrolus OCR](/integrations/ocr/ocrolus#api) data for the detected document.
+  parameters:
+    UserId:
+      name: user
+      in: query
+      description: Filter by user ID.
+      schema:
+        type: string
+        format: uuid
+    DocumentType:
+      name: document_type
+      in: query
+      description: Filter by `document_type`.
+      schema:
+        type: string
+        format: uuid
+    Limit:
+      name: limit
+      in: query
+      description: 'Number of user upload objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.
 
-
-            Available for paystubs, W-2s, and 1099s when Ocrolus is enabled.
-
-            '
-        ocr_authenticity:
-          type: object
-          description: 'Contains [Ocrolus authenticity](/integrations/ocr/ocrolus#api) data for the detected document.
-
-
-            Includes individual instances of tampering or other authenticity-related edits detected in the document.
-
-
-            Available for paystubs, W-2s, and 1099s when Ocrolus is enabled.
-
-            '
-        ocr_authenticity_score:
-          type:
-          - integer
-          - 'null'
-          description: '[Ocrolus authenticity score](/integrations/ocr/ocrolus#authenticity-scores) for the detected document.
-
-
-            Single score that captures the likelihood the detected document is authentic, as determined by Ocrolus.
-
-
-            Available for paystubs, W-2s, and 1099s when Ocrolus is enabled.
-
-            '
+        '
+      schema:
+        type: integer
+    AccountId:
+      name: account
+      in: query
+      description: Filter by account ID.
+      schema:
+        type: string
+        format: uuid
+  responses:
+    UserUploadListResponse:
+      description: A paginated list of user upload objects.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              next:
+                type:
+                - string
+                - 'null'
+                format: uri
+                description: URL for the next page of results, if available.
+              previous:
+                type:
+                - string
+                - 'null'
+                format: uri
+                description: URL for the previous page of results, if available.
+              results:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserUpload'
+    UserUploadResponse:
+      description: A user upload object.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserUpload'
   securitySchemes:
     basicAuth:
       type: http

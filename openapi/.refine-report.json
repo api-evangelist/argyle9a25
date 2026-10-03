@@ -144,7 +144,34 @@
     "argyle9a25-openapi-openapi.yml: declared missing tag: Vehicles",
     "argyle9a25-openapi-openapi.yml: declared missing tag: Verifications",
     "argyle9a25-openapi-openapi.yml: declared missing tag: Webhook management",
-    "apis.yml register: written (+26 apis, 27 total)"
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "argyle9a25-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-deposit-destinations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-employer-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-employments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-gigs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-identities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-invites-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-item-filters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-item-migrations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-items-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-open-banking-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-partners-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-payroll-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-paystubs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-ratings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-receipts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-sessions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-shifts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-user-forms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-user-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-user-uploads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-vehicles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-verifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "argyle9a25-webhook-management-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
