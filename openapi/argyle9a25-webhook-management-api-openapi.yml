@@ -508,6 +508,176 @@ paths:
           description: '204 status code: No content.'
 components:
   schemas:
+    WebhookCreateRequest:
+      type: object
+      properties:
+        events:
+          type: array
+          description: Webhook events to include in the webhook subscription.
+          items:
+            type: string
+        name:
+          type: string
+          description: Your name for the webhook subscription.
+        url:
+          type: string
+          format: uri
+          description: Where you want to receive webhook delivery. This can be either a backend URL that you manage, or a URL provided by a webhook management service. Argyle handles URL encoding for webhook URLs. Send the URL in its normal, unencoded form.
+        secret:
+          type: string
+          description: Optional secret used to [verify webhooks](/api-guide/webhooks#verifying-webhooks).
+        config:
+          type: object
+          description: Optional event-specific configuration for the webhook subscription. (*Only applicable to certain webhooks*)
+          additionalProperties: true
+      required:
+      - events
+      - name
+      - url
+      example:
+        events:
+        - verifications.updated
+        name: name-for-the-webhook-subscription
+        url: https://your-webhook-backend.com
+        secret: optional-secret
+    ConsolidatedWebhookSubscriptionRequest:
+      type: object
+      properties:
+        events:
+          type: array
+          description: Webhook events to include in the webhook subscription.
+          items:
+            type: string
+            enum:
+            - users.fully_synced
+            - accounts.added
+            - accounts.updated
+            - accounts.removed
+            - accounts.connected
+            - accounts.failed
+            - items.updated
+            - items.removed
+            - identities.added
+            - identities.updated
+            - paystubs.added
+            - paystubs.updated
+            - paystubs.partially_synced
+            - paystubs.fully_synced
+            - payroll_documents.added
+            - payroll_documents.updated
+            - payroll_documents.removed
+            - payroll_documents.ocr_completed
+            - payroll_documents.ocr_failed
+            - deposit_destinations.added
+            - deposit_destinations.updated
+            - deposit_destinations.removed
+            - direct_deposit_switches.completed
+            - direct_deposit_switches.failed
+            - shifts.added
+            - shifts.updated
+            - shifts.removed
+            - shifts.partially_synced
+            - shifts.fully_synced
+            - gigs.added
+            - gigs.updated
+            - gigs.removed
+            - gigs.partially_synced
+            - gigs.fully_synced
+            - vehicles.added
+            - vehicles.updated
+            - vehicles.removed
+            - ratings.added
+            - ratings.updated
+            - reports.ready
+            - reports.generated
+            - user_uploads.added
+            - user_uploads.removed
+            - user_uploads.ocr_completed
+            - user_uploads.ocr_failed
+            - user_uploads.ocr_authenticity
+            - user_forms.removed
+            - user_forms.submitted
+            - verifications.updated
+            - verifications.creation_failed
+            - verifications.connection_added
+        name:
+          type: string
+          description: Name for the webhook subscription.
+        url:
+          type: string
+          description: Where you want to receive webhook delivery. This can be either a backend URL that you manage, or a URL provided by a webhook management service. Argyle handles URL encoding for webhook URLs. Send the URL in its normal, unencoded form.
+        secret:
+          type:
+          - string
+          - 'null'
+          description: Optional secret used to verify webhooks.
+        config:
+          type: object
+          description: Optional event-specific configuration for the webhook subscription. (*Only applicable to certain webhooks*)
+          additionalProperties: true
+      required:
+      - events
+      - name
+      - url
+      example:
+        events:
+        - accounts.added
+        name: name-for-the-webhook-subscription
+        url: https://your-webhook-backend.com
+        secret: optional-secret
+    Webhook:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: ID of the webhook subscription.
+        name:
+          type: string
+          description: Name of the webhook subscription.
+        events:
+          type: array
+          description: Webhook events included in the webhook subscription.
+          items:
+            type: string
+        config:
+          type: object
+          description: Event-specific configuration for the webhook subscription.
+          additionalProperties: true
+        secret:
+          type:
+          - string
+          - 'null'
+          description: Secret used to verify webhooks, if provided.
+        url:
+          type: string
+          format: uri
+          description: URL where webhook deliveries are sent.
+        created_at:
+          type: string
+          format: date-time
+          description: Time when the webhook subscription was created.
+        updated_at:
+          type: string
+          format: date-time
+          description: Time when the webhook subscription was last updated.
+        last_sent_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last time Argyle sent the webhook. A null value means the webhook has not been sent.
+      example:
+        id: 205c027e-8a4d-4248-b395-d4f345dfd49f
+        name: name-for-the-webhook-subscription
+        events:
+        - verifications.updated
+        config: {}
+        secret: optional-secret
+        url: https://your-webhook-backend.com
+        created_at: '2026-07-29T19:33:16.120Z'
+        updated_at: '2026-07-29T19:33:16.123Z'
+        last_sent_at: null
     ConsolidatedWebhookSubscriptionResponse:
       type: object
       properties:
@@ -631,91 +801,6 @@ components:
       - event
       - name
       - data
-    ConsolidatedWebhookSubscriptionRequest:
-      type: object
-      properties:
-        events:
-          type: array
-          description: Webhook events to include in the webhook subscription.
-          items:
-            type: string
-            enum:
-            - users.fully_synced
-            - accounts.added
-            - accounts.updated
-            - accounts.removed
-            - accounts.connected
-            - accounts.failed
-            - items.updated
-            - items.removed
-            - identities.added
-            - identities.updated
-            - paystubs.added
-            - paystubs.updated
-            - paystubs.partially_synced
-            - paystubs.fully_synced
-            - payroll_documents.added
-            - payroll_documents.updated
-            - payroll_documents.removed
-            - payroll_documents.ocr_completed
-            - payroll_documents.ocr_failed
-            - deposit_destinations.added
-            - deposit_destinations.updated
-            - deposit_destinations.removed
-            - direct_deposit_switches.completed
-            - direct_deposit_switches.failed
-            - shifts.added
-            - shifts.updated
-            - shifts.removed
-            - shifts.partially_synced
-            - shifts.fully_synced
-            - gigs.added
-            - gigs.updated
-            - gigs.removed
-            - gigs.partially_synced
-            - gigs.fully_synced
-            - vehicles.added
-            - vehicles.updated
-            - vehicles.removed
-            - ratings.added
-            - ratings.updated
-            - reports.ready
-            - reports.generated
-            - user_uploads.added
-            - user_uploads.removed
-            - user_uploads.ocr_completed
-            - user_uploads.ocr_failed
-            - user_uploads.ocr_authenticity
-            - user_forms.removed
-            - user_forms.submitted
-            - verifications.updated
-            - verifications.creation_failed
-            - verifications.connection_added
-        name:
-          type: string
-          description: Name for the webhook subscription.
-        url:
-          type: string
-          description: Where you want to receive webhook delivery. This can be either a backend URL that you manage, or a URL provided by a webhook management service. Argyle handles URL encoding for webhook URLs. Send the URL in its normal, unencoded form.
-        secret:
-          type:
-          - string
-          - 'null'
-          description: Optional secret used to verify webhooks.
-        config:
-          type: object
-          description: Optional event-specific configuration for the webhook subscription. (*Only applicable to certain webhooks*)
-          additionalProperties: true
-      required:
-      - events
-      - name
-      - url
-      example:
-        events:
-        - accounts.added
-        name: name-for-the-webhook-subscription
-        url: https://your-webhook-backend.com
-        secret: optional-secret
     WebhookListResponse:
       type: object
       properties:
@@ -735,91 +820,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Webhook'
-    WebhookCreateRequest:
-      type: object
-      properties:
-        events:
-          type: array
-          description: Webhook events to include in the webhook subscription.
-          items:
-            type: string
-        name:
-          type: string
-          description: Your name for the webhook subscription.
-        url:
-          type: string
-          format: uri
-          description: Where you want to receive webhook delivery. This can be either a backend URL that you manage, or a URL provided by a webhook management service. Argyle handles URL encoding for webhook URLs. Send the URL in its normal, unencoded form.
-        secret:
-          type: string
-          description: Optional secret used to [verify webhooks](/api-guide/webhooks#verifying-webhooks).
-        config:
-          type: object
-          description: Optional event-specific configuration for the webhook subscription. (*Only applicable to certain webhooks*)
-          additionalProperties: true
-      required:
-      - events
-      - name
-      - url
-      example:
-        events:
-        - verifications.updated
-        name: name-for-the-webhook-subscription
-        url: https://your-webhook-backend.com
-        secret: optional-secret
-    Webhook:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: ID of the webhook subscription.
-        name:
-          type: string
-          description: Name of the webhook subscription.
-        events:
-          type: array
-          description: Webhook events included in the webhook subscription.
-          items:
-            type: string
-        config:
-          type: object
-          description: Event-specific configuration for the webhook subscription.
-          additionalProperties: true
-        secret:
-          type:
-          - string
-          - 'null'
-          description: Secret used to verify webhooks, if provided.
-        url:
-          type: string
-          format: uri
-          description: URL where webhook deliveries are sent.
-        created_at:
-          type: string
-          format: date-time
-          description: Time when the webhook subscription was created.
-        updated_at:
-          type: string
-          format: date-time
-          description: Time when the webhook subscription was last updated.
-        last_sent_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last time Argyle sent the webhook. A null value means the webhook has not been sent.
-      example:
-        id: 205c027e-8a4d-4248-b395-d4f345dfd49f
-        name: name-for-the-webhook-subscription
-        events:
-        - verifications.updated
-        config: {}
-        secret: optional-secret
-        url: https://your-webhook-backend.com
-        created_at: '2026-07-29T19:33:16.120Z'
-        updated_at: '2026-07-29T19:33:16.123Z'
-        last_sent_at: null
   parameters:
     Cursor:
       in: query
@@ -827,6 +827,28 @@ components:
       description: The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.
       schema:
         type: string
+    FromCreatedAt:
+      in: query
+      name: from_created_at
+      description: Filter for webhooks created on or after this timestamp.
+      schema:
+        type: string
+        format: date-time
+    Limit_webhooks:
+      in: query
+      name: limit
+      description: 'Number of webhook subscriptions returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.'
+      schema:
+        type: integer
+        default: 10
+        maximum: 200
+    ToCreatedAt:
+      in: query
+      name: to_created_at
+      description: Filter for webhooks created on or before this timestamp.
+      schema:
+        type: string
+        format: date-time
     Ordering:
       in: query
       name: ordering
@@ -836,28 +858,6 @@ components:
         enum:
         - id
         - created_at
-    Limit_webhooks:
-      in: query
-      name: limit
-      description: 'Number of webhook subscriptions returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.'
-      schema:
-        type: integer
-        default: 10
-        maximum: 200
-    FromCreatedAt:
-      in: query
-      name: from_created_at
-      description: Filter for webhooks created on or after this timestamp.
-      schema:
-        type: string
-        format: date-time
-    ToCreatedAt:
-      in: query
-      name: to_created_at
-      description: Filter for webhooks created on or before this timestamp.
-      schema:
-        type: string
-        format: date-time
   securitySchemes:
     basicAuth:
       type: http
