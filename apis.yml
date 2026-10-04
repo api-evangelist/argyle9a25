@@ -13,7 +13,15 @@ x-tier-reason: enrichment pass 2026-09-26 (modular-v1; was harvest)
 specificationVersion: '0.20'
 created: '2026-09-26'
 modified: '2026-09-26'
+x-docs-platform: mintlify
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-10-03
 tags:
+- Company
+- Fintech
+- Verification
+- Payroll
+tags_raw:
 - Company
 - FinTech
 - Verification
@@ -25,6 +33,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/argyle9a25-capability-edges.yml
+  name: Argyle9a25 Business Capability Map
 - type: Spectral
   url: rules/argyle9a25-rules.yml
 - type: JSONLD
@@ -99,6 +110,8 @@ apis:
   humanURL: https://docs.argyle.com/api-reference/overview
   baseURL: https://api.argyle.com/v2
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -297,6 +310,8 @@ apis:
   humanURL: https://docs.argyle.com/api-reference/overview
   baseURL: https://api.argyle.com/v2
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
@@ -583,6 +598,8 @@ apis:
   humanURL: https://docs.argyle.com/api-reference/overview
   baseURL: https://api.argyle.com/v2
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -627,6 +644,8 @@ apis:
   humanURL: https://docs.argyle.com/api-reference/overview
   baseURL: https://api.argyle.com/v2
   tags:
+  - Verification
+  tags_raw:
   - Verifications
   properties:
   - type: OpenAPI
@@ -649,6 +668,8 @@ apis:
   humanURL: https://docs.argyle.com/api-reference/overview
   baseURL: https://api.argyle.com/v2
   tags:
+  - Webhook Management
+  tags_raw:
   - Webhook management
   properties:
   - type: OpenAPI
