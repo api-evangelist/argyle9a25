@@ -507,7 +507,117 @@ paths:
         '204':
           description: '204 status code: No content.'
 components:
+  parameters:
+    Limit_webhooks:
+      in: query
+      name: limit
+      description: 'Number of webhook subscriptions returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.'
+      schema:
+        type: integer
+        default: 10
+        maximum: 200
+    ToCreatedAt:
+      in: query
+      name: to_created_at
+      description: Filter for webhooks created on or before this timestamp.
+      schema:
+        type: string
+        format: date-time
+    FromCreatedAt:
+      in: query
+      name: from_created_at
+      description: Filter for webhooks created on or after this timestamp.
+      schema:
+        type: string
+        format: date-time
+    Cursor:
+      in: query
+      name: cursor
+      description: The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.
+      schema:
+        type: string
+    Ordering:
+      in: query
+      name: ordering
+      description: Use `id` to order results by webhook ID. Use `created_at` to order results by when the webhooks were created.
+      schema:
+        type: string
+        enum:
+        - id
+        - created_at
   schemas:
+    ConsolidatedWebhookSubscriptionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: ID of the webhook subscription.
+        name:
+          type: string
+          description: Name of the webhook subscription.
+        events:
+          type: array
+          description: Webhook events included in the webhook subscription.
+          items:
+            type: string
+        config:
+          type: object
+          description: Event-specific configuration for the webhook subscription.
+          additionalProperties: true
+        secret:
+          type:
+          - string
+          - 'null'
+          description: Secret used to verify webhooks, if provided.
+        url:
+          type: string
+          format: uri
+          description: URL where webhook deliveries are sent.
+        created_at:
+          type: string
+          format: date-time
+          description: Time when the webhook subscription was created.
+        updated_at:
+          type: string
+          format: date-time
+          description: Time when the webhook subscription was last updated.
+        last_sent_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last time Argyle sent the webhook. A null value means the webhook has not been sent.
+      example:
+        id: 205c027e-8a4d-4248-b395-d4f345dfd49f
+        name: name-for-the-webhook-subscription
+        events:
+        - verifications.updated
+        config: {}
+        secret: optional-secret
+        url: https://your-webhook-backend.com
+        created_at: '2026-07-29T19:33:16.120Z'
+        updated_at: '2026-07-29T19:33:16.123Z'
+        last_sent_at: null
+    WebhookListResponse:
+      type: object
+      properties:
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: URL for the next page of results, if available.
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: URL for the previous page of results, if available.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Webhook'
     WebhookCreateRequest:
       type: object
       properties:
@@ -678,59 +788,6 @@ components:
         created_at: '2026-07-29T19:33:16.120Z'
         updated_at: '2026-07-29T19:33:16.123Z'
         last_sent_at: null
-    ConsolidatedWebhookSubscriptionResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          description: ID of the webhook subscription.
-        name:
-          type: string
-          description: Name of the webhook subscription.
-        events:
-          type: array
-          description: Webhook events included in the webhook subscription.
-          items:
-            type: string
-        config:
-          type: object
-          description: Event-specific configuration for the webhook subscription.
-          additionalProperties: true
-        secret:
-          type:
-          - string
-          - 'null'
-          description: Secret used to verify webhooks, if provided.
-        url:
-          type: string
-          format: uri
-          description: URL where webhook deliveries are sent.
-        created_at:
-          type: string
-          format: date-time
-          description: Time when the webhook subscription was created.
-        updated_at:
-          type: string
-          format: date-time
-          description: Time when the webhook subscription was last updated.
-        last_sent_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last time Argyle sent the webhook. A null value means the webhook has not been sent.
-      example:
-        id: 205c027e-8a4d-4248-b395-d4f345dfd49f
-        name: name-for-the-webhook-subscription
-        events:
-        - verifications.updated
-        config: {}
-        secret: optional-secret
-        url: https://your-webhook-backend.com
-        created_at: '2026-07-29T19:33:16.120Z'
-        updated_at: '2026-07-29T19:33:16.123Z'
-        last_sent_at: null
     ConsolidatedWebhookEventPayload:
       type: object
       description: Webhook event payload. Use `event` to determine the event-specific shape of `data`.
@@ -801,63 +858,6 @@ components:
       - event
       - name
       - data
-    WebhookListResponse:
-      type: object
-      properties:
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          description: URL for the next page of results, if available.
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          description: URL for the previous page of results, if available.
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Webhook'
-  parameters:
-    Cursor:
-      in: query
-      name: cursor
-      description: The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.
-      schema:
-        type: string
-    FromCreatedAt:
-      in: query
-      name: from_created_at
-      description: Filter for webhooks created on or after this timestamp.
-      schema:
-        type: string
-        format: date-time
-    Limit_webhooks:
-      in: query
-      name: limit
-      description: 'Number of webhook subscriptions returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.'
-      schema:
-        type: integer
-        default: 10
-        maximum: 200
-    ToCreatedAt:
-      in: query
-      name: to_created_at
-      description: Filter for webhooks created on or before this timestamp.
-      schema:
-        type: string
-        format: date-time
-    Ordering:
-      in: query
-      name: ordering
-      description: Use `id` to order results by webhook ID. Use `created_at` to order results by when the webhooks were created.
-      schema:
-        type: string
-        enum:
-        - id
-        - created_at
   securitySchemes:
     basicAuth:
       type: http

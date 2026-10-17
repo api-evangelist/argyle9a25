@@ -118,10 +118,10 @@ paths:
       - User Uploads
 components:
   parameters:
-    AccountId:
-      name: account
+    UserId:
+      name: user
       in: query
-      description: Filter by account ID.
+      description: Filter by user ID.
       schema:
         type: string
         format: uuid
@@ -133,10 +133,10 @@ components:
         '
       schema:
         type: integer
-    UserId:
-      name: user
+    AccountId:
+      name: account
       in: query
-      description: Filter by user ID.
+      description: Filter by account ID.
       schema:
         type: string
         format: uuid
@@ -148,6 +148,12 @@ components:
         type: string
         format: uuid
   responses:
+    UserUploadResponse:
+      description: A user upload object.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserUpload'
     UserUploadListResponse:
       description: A paginated list of user upload objects.
       content:
@@ -171,13 +177,43 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/UserUpload'
-    UserUploadResponse:
-      description: A user upload object.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserUpload'
   schemas:
+    OcrDocument:
+      type: object
+      description: Contains OCR and authenticity results for one document detected within an uploaded file.
+      properties:
+        ocr_data:
+          type: object
+          description: 'Contains [Ocrolus OCR](/integrations/ocr/ocrolus#api) data for the detected document.
+
+
+            Available for paystubs, W-2s, and 1099s when Ocrolus is enabled.
+
+            '
+        ocr_authenticity:
+          type: object
+          description: 'Contains [Ocrolus authenticity](/integrations/ocr/ocrolus#api) data for the detected document.
+
+
+            Includes individual instances of tampering or other authenticity-related edits detected in the document.
+
+
+            Available for paystubs, W-2s, and 1099s when Ocrolus is enabled.
+
+            '
+        ocr_authenticity_score:
+          type:
+          - integer
+          - 'null'
+          description: '[Ocrolus authenticity score](/integrations/ocr/ocrolus#authenticity-scores) for the detected document.
+
+
+            Single score that captures the likelihood the detected document is authentic, as determined by Ocrolus.
+
+
+            Available for paystubs, W-2s, and 1099s when Ocrolus is enabled.
+
+            '
     UserUpload:
       type: object
       example:
@@ -355,42 +391,6 @@ components:
           type: string
           format: date-time
           description: Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the user upload object was last updated.
-    OcrDocument:
-      type: object
-      description: Contains OCR and authenticity results for one document detected within an uploaded file.
-      properties:
-        ocr_data:
-          type: object
-          description: 'Contains [Ocrolus OCR](/integrations/ocr/ocrolus#api) data for the detected document.
-
-
-            Available for paystubs, W-2s, and 1099s when Ocrolus is enabled.
-
-            '
-        ocr_authenticity:
-          type: object
-          description: 'Contains [Ocrolus authenticity](/integrations/ocr/ocrolus#api) data for the detected document.
-
-
-            Includes individual instances of tampering or other authenticity-related edits detected in the document.
-
-
-            Available for paystubs, W-2s, and 1099s when Ocrolus is enabled.
-
-            '
-        ocr_authenticity_score:
-          type:
-          - integer
-          - 'null'
-          description: '[Ocrolus authenticity score](/integrations/ocr/ocrolus#authenticity-scores) for the detected document.
-
-
-            Single score that captures the likelihood the detected document is authentic, as determined by Ocrolus.
-
-
-            Available for paystubs, W-2s, and 1099s when Ocrolus is enabled.
-
-            '
   securitySchemes:
     basicAuth:
       type: http

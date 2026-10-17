@@ -474,27 +474,6 @@ paths:
       - Users
 components:
   schemas:
-    Broker:
-      type: object
-      description: '**Note:** Only for wholesale mortgage integrations.
-
-
-        Contains information about the user''s mortgage broker for [broker-branded invites](/verifications/wholesale-mortgage).
-
-        '
-      properties:
-        name:
-          type: string
-          description: Name of the mortgage broker.
-        phone_number:
-          type: string
-          description: Phone number of the mortgage broker. [E.164](https://en.wikipedia.org/wiki/E.164) international format.
-        email:
-          type: string
-          description: Email address of the mortgage broker.
-        nmls:
-          type: string
-          description: NMLS ID of the mortgage broker.
     User:
       type: object
       example:
@@ -654,6 +633,27 @@ components:
               type: integer
               description: Birth day (between 1 and 31).
               example: 30
+    Broker:
+      type: object
+      description: '**Note:** Only for wholesale mortgage integrations.
+
+
+        Contains information about the user''s mortgage broker for [broker-branded invites](/verifications/wholesale-mortgage).
+
+        '
+      properties:
+        name:
+          type: string
+          description: Name of the mortgage broker.
+        phone_number:
+          type: string
+          description: Phone number of the mortgage broker. [E.164](https://en.wikipedia.org/wiki/E.164) international format.
+        email:
+          type: string
+          description: Email address of the mortgage broker.
+        nmls:
+          type: string
+          description: NMLS ID of the mortgage broker.
   securitySchemes:
     basicAuth:
       type: http

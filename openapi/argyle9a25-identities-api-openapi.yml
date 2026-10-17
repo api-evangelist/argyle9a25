@@ -224,6 +224,21 @@ paths:
       - Identities
 components:
   schemas:
+    PlatformIds:
+      type: object
+      properties:
+        employee_id:
+          type: string
+          description: Internal user ID assigned by the employer.
+          example: OB238HDW5
+        position_id:
+          type: string
+          description: Internal position ID assigned by the employer.
+          example: 6ELL4O7PM
+        platform_user_id:
+          type: string
+          description: ID assigned by the payroll system.
+          example: JLH7B9V6O6YGN9O7
     Identity:
       type: object
       example:
@@ -511,21 +526,6 @@ components:
           type: string
           description: Zip code, or equivalent.
           example: '10014'
-    PlatformIds:
-      type: object
-      properties:
-        employee_id:
-          type: string
-          description: Internal user ID assigned by the employer.
-          example: OB238HDW5
-        position_id:
-          type: string
-          description: Internal position ID assigned by the employer.
-          example: 6ELL4O7PM
-        platform_user_id:
-          type: string
-          description: ID assigned by the payroll system.
-          example: JLH7B9V6O6YGN9O7
   securitySchemes:
     basicAuth:
       type: http
