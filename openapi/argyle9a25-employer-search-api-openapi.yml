@@ -202,3 +202,9 @@ components:
       type: http
       scheme: basic
       description: Username = api_key_id, Password = api_key_secret
+x-provenance:
+  method: harvested
+  publisher: Argyle9a25
+  source: https://docs.argyle.com/openAPI/argyle-all.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
