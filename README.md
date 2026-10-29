@@ -64,5 +64,156 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Argyle9a25 is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://equityzen.com/company/argyle9a25
+Argyle9a25 is a stub entry for the company Argyle, which provides automated income, employment, and asset verification services. Their platform offers APIs for payroll verification, direct banking data, and various use cases across mortgage, personal lending, government benefits, background checks, and tenant screening. Argyle enables lenders and brokers to integrate verification flows quickly, with a web-based console and developer-friendly documentation.
+
+**Areas:** Company · Fintech · Verification · Payroll
+
+## Argyle9a25 on APIs.io
+
+Everything profiled for Argyle9a25 is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/argyle9a25/](https://apis.io/providers/argyle9a25/)** — or go straight to one of the APIs or properties below.
+
+### APIs (27)
+
+- [Argyle API](https://apis.io/apis/argyle9a25/argyle-api/) — Argyle OpenAPI spec providing verification endpoints.
+- [Argyle9a25 Accounts API](https://apis.io/apis/argyle9a25/argyle9a25-accounts-api/) — The Accounts API from Argyle9a25 — 3 operation(s) for accounts.
+- [Argyle9a25 Deposit Destinations API](https://apis.io/apis/argyle9a25/argyle9a25-deposit-destinations-api/) — The Deposit Destinations API from Argyle9a25 — 2 operation(s) for deposit destinations.
+- [Argyle9a25 Employer Search API](https://apis.io/apis/argyle9a25/argyle9a25-employer-search-api/) — The Employer Search API from Argyle9a25 — 1 operation(s) for employer search.
+- [Argyle9a25 Employments API](https://apis.io/apis/argyle9a25/argyle9a25-employments-api/) — The Employments API from Argyle9a25 — 1 operation(s) for employments.
+- [Argyle9a25 Gigs API](https://apis.io/apis/argyle9a25/argyle9a25-gigs-api/) — The Gigs API from Argyle9a25 — 2 operation(s) for gigs.
+- [Argyle9a25 Identities API](https://apis.io/apis/argyle9a25/argyle9a25-identities-api/) — The Identities API from Argyle9a25 — 2 operation(s) for identities.
+- [Argyle9a25 Invites API](https://apis.io/apis/argyle9a25/argyle9a25-invites-api/) — The Invites API from Argyle9a25 — 3 operation(s) for invites.
+- [Argyle9a25 Item Filters API](https://apis.io/apis/argyle9a25/argyle9a25-item-filters-api/) — The Item Filters API from Argyle9a25 — 2 operation(s) for item filters.
+- [Argyle9a25 Item Migrations API](https://apis.io/apis/argyle9a25/argyle9a25-item-migrations-api/) — The Item Migrations API from Argyle9a25 — 1 operation(s) for item migrations.
+- [Argyle9a25 Items API](https://apis.io/apis/argyle9a25/argyle9a25-items-api/) — The Items API from Argyle9a25 — 2 operation(s) for items.
+- [Argyle9a25 Open Banking API](https://apis.io/apis/argyle9a25/argyle9a25-open-banking-api/) — The Open Banking API from Argyle9a25 — 6 operation(s) for open banking.
+- [Argyle9a25 Partners API](https://apis.io/apis/argyle9a25/argyle9a25-partners-api/) — The Partners API from Argyle9a25 — 15 operation(s) for partners.
+- [Argyle9a25 Payroll Documents API](https://apis.io/apis/argyle9a25/argyle9a25-payroll-documents-api/) — The Payroll Documents API from Argyle9a25 — 2 operation(s) for payroll documents.
+- [Argyle9a25 Paystubs API](https://apis.io/apis/argyle9a25/argyle9a25-paystubs-api/) — The Paystubs API from Argyle9a25 — 2 operation(s) for paystubs.
+- [Argyle9a25 Ratings API](https://apis.io/apis/argyle9a25/argyle9a25-ratings-api/) — The Ratings API from Argyle9a25 — 2 operation(s) for ratings.
+- [Argyle9a25 Receipts API](https://apis.io/apis/argyle9a25/argyle9a25-receipts-api/) — The Receipts API from Argyle9a25 — 1 operation(s) for receipts.
+- [Argyle9a25 Reports API](https://apis.io/apis/argyle9a25/argyle9a25-reports-api/) — The Reports API from Argyle9a25 — 3 operation(s) for reports.
+- [Argyle9a25 Sessions API](https://apis.io/apis/argyle9a25/argyle9a25-sessions-api/) — The Sessions API from Argyle9a25 — 1 operation(s) for sessions.
+- [Argyle9a25 Shifts API](https://apis.io/apis/argyle9a25/argyle9a25-shifts-api/) — The Shifts API from Argyle9a25 — 2 operation(s) for shifts.
+- [Argyle9a25 User Forms API](https://apis.io/apis/argyle9a25/argyle9a25-user-forms-api/) — The User Forms API from Argyle9a25 — 2 operation(s) for user forms.
+- [Argyle9a25 User Tokens API](https://apis.io/apis/argyle9a25/argyle9a25-user-tokens-api/) — The User Tokens API from Argyle9a25 — 1 operation(s) for user tokens.
+- [Argyle9a25 User Uploads API](https://apis.io/apis/argyle9a25/argyle9a25-user-uploads-api/) — The User Uploads API from Argyle9a25 — 2 operation(s) for user uploads.
+- [Argyle9a25 Users API](https://apis.io/apis/argyle9a25/argyle9a25-users-api/) — The Users API from Argyle9a25 — 2 operation(s) for users.
+- [Argyle9a25 Vehicles API](https://apis.io/apis/argyle9a25/argyle9a25-vehicles-api/) — The Vehicles API from Argyle9a25 — 2 operation(s) for vehicles.
+- [Argyle9a25 Verifications API](https://apis.io/apis/argyle9a25/argyle9a25-verifications-api/) — The Verifications API from Argyle9a25 — 4 operation(s) for verifications.
+- [Argyle9a25 Webhook management API](https://apis.io/apis/argyle9a25/argyle9a25-webhook-management-api/) — The Webhook management API from Argyle9a25 — 4 operation(s) for webhook management.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Argyle9A25 Webhooks](https://apis.io/asyncapis/argyle9a25/argyle9a25-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [argyle9a25-mcp.yml](https://apis.io/servers/argyle9a25/argyle9a25-mcp-yml/)
+
+#### JSON Schema (6)
+
+The data models the API reads and writes.
+
+- [Account](https://apis.io/schemas/argyle9a25/argyle9a25-account/)
+- [Gig](https://apis.io/schemas/argyle9a25/argyle9a25-gig/)
+- [PartnerPaystub](https://apis.io/schemas/argyle9a25/argyle9a25-partner-paystub/)
+- [PayrollDocument](https://apis.io/schemas/argyle9a25/argyle9a25-payroll-document/)
+- [PayrollDocument_verifications-partners](https://apis.io/schemas/argyle9a25/argyle9a25-payroll-document-verifications-partners/)
+- [Paystub](https://apis.io/schemas/argyle9a25/argyle9a25-paystub/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Argyle9A25 Context](https://apis.io/jsonld/argyle9a25/argyle9a25-context/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Argyle9a25 API Rules](https://apis.io/rules/argyle9a25/argyle9a25-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Argyle9A25 Authentication](https://apis.io/security/argyle9a25/argyle9a25-authentication/)
+- [Argyle9A25 Domain Security](https://apis.io/security/argyle9a25/argyle9a25-domain-security/)
+- [Argyle9A25 Vulnerability Disclosure](https://apis.io/security/argyle9a25/argyle9a25-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.argyle.com)
+- [Documentation](https://docs.argyle.com/)
+- [Getting started](https://docs.argyle.com/verifications/quickstart)
+- [API reference](https://docs.argyle.com/llms.txt)
+- [Support](https://support.argyle.com/hc/en-us)
+- [Blog](https://www.argyle.com/blog)
+- [Trust centre](https://trust.argyle.com/)
+- [Privacy policy](https://www.argyle.com/legal/consumers/privacy-notice)
+- [Status](https://status.argyle.com/)
+
+## API Evangelist rating
+
+**Kin Score 52.4** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 69.7 |
+| Contract governance | 22.0 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 54.8 |
+| Access clarity | 31.6 |
+
+**Agent readiness 29.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | mostly |
+
+**Regulatory alignment 31.4** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/argyle9a25/](https://apis.io/providers/argyle9a25/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Argyle9a25: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/argyle9a25/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
